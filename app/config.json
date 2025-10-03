@@ -1,3 +1,10 @@
 {
-  "serviceName": "Compensation Recovery Service"
+  "serviceName": "Compensation Recovery Service",
+
+"plugins": {
+  "govuk-frontend": {
+    "rebrand": true
+  }
+}
+
 }
