@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set pageName="Home" %}
 
@@ -13,9 +14,105 @@
       Compensation Recovery Service
     </h1>
 
-    <h2 class="govuk-heading-m">Template for adding new designs</h2>
+    <div style="margin-bottom: 50px;">
+        <p class="govuk-body">
+          You can use this prototype to view designs and flows for both compensator and agent UI.
+        </p>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+        <p>
+          <a href="agent-ui-index" class="govuk-link"> Go to prototypes for Agent UI</a>
+        </p>
+
+           <p>
+          <a href="compensator-ui-index" class="govuk-link"> Go to prototypes for Compensator UI</a>
+        </p>
+      </div>   
+
+
+    <div>
+    <h2 class="govuk-heading-m">Design standards and patterns</h2>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="https://design-system.service.gov.uk/styles/">GOV.UK Design system</a>
+    </p>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="https://design-system.dwp.gov.uk/">DWP Design system</a>
+    </p>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="patterns-in-use">Patterns in use on CRS</a>
+    </p>
+    </div>
+
+    <div style="margin-top: 50px;">
+    <h2 class="govuk-heading-m">
+      Template for adding new designs
+    </h2>
+
+    <p class="govuk-body">
+      Use this layout when adding new designs or pieces of work the prototype. You can delete the content that is not relevant.
+    </p>
+
+    <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Template to copy 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+
+  
+      <h3 class="govuk-heading-s">Title of work (E.g. Adding branches to an organisation)</h3>
+      <p>
+        Description of the piece of work, mention if work came out of UR findings what we are addressing. E.g. Allowing the compensators to add branches to the organisation account.
+      </p>
+
+      <p class="govuk-body"><a class="govuk-link" href="/agent/task-closure-ni">Start prototype - Full flow</a></p>
+
+
+      <h3 class="govuk-heading-s">Changes since the last iteration</h3>
+      <p class="govuk-body"></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>description</li>
+          <li>description</li>
+          <li>description</li>
+        </ul>
+  
+      <h3 class="govuk-heading-s">Links to individual pages</h3>
+      <p class="govuk-body"></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+          <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+        </ul>
+      
+      <h3 class="govuk-heading-s">Links to error pages</h3>
+      <p class="govuk-body"></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>description and <a href="" class="govuk-link">link to error page</a></li>
+          <li>description and <a href="" class="govuk-link">link to error page</a></li>
+        </ul>
+      
+          
+      <h3 class="govuk-heading-s">Relevant links</h3>
+      <p class="govuk-body"></p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="" class="govuk-link">Journey mapped out in Lucid board</a></li>
+          <li><a href="" class="govuk-link">User research findings informing work</a></li>
+          <li><a href="" class="govuk-link">User research findings from testing</a></li>
+        </ul>
+
+        <p class="govuk-body">Designer who worked on this: Natasha Dodds</p>
+    
+    
+
+  </div>
+</details>
+    </div>
+
+
+
+
   </div>
 </div>
 

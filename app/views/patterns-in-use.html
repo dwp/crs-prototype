@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <h1 class="govuk-heading-xl">
+      Patterns in use in CRS
+    </h1>
+
+      <p class="govuk-body">This page will detail the patterns we are using for certain components in CRS, with examples of the designs.</p>
+
+
+        
+
+       
+
+
+  </div>
+</div>
+
+{% endblock %}

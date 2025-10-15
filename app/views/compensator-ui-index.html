@@ -1,0 +1,209 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "index"
+}) }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <h1 class="govuk-heading-xl">
+      Compensator UI prototypes
+    </h1>
+
+      
+
+        
+
+        <div>
+          {{ govukAccordion({
+            id: "accordion-default",
+            items: [
+              {
+                heading: {
+                  text: "Referral"
+                },
+                content: {
+                  html: '
+                   <div style="margin-top: 50px;">
+                    <h3 class="govuk-heading-s">Title of work (E.g. Adding branches to an organisation)</h3>
+                    <p>
+                      Description of the piece of work, mention if work came out of UR findings what we are addressing. E.g. Allowing the compensators to add branches to the organisation account.
+                    </p>
+
+                  {{ govukButton({
+                      text: "Start prototype",
+                      href: "/Agent/task-closure-ni.html"
+                    }) }}
+
+                    <h3 class="govuk-heading-s">Changes since the last iteration</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description</li>
+                        <li>description</li>
+                        <li>description</li>
+                      </ul>
+                
+                    <h3 class="govuk-heading-s">Links to individual pages</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+                        <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+                      </ul>
+                    
+                    <h3 class="govuk-heading-s">Links to error pages</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description and <a href="" class="govuk-link">link to error page</a></li>
+                        <li>description and <a href="" class="govuk-link">link to error page</a></li>
+                      </ul>
+                    
+                        
+                    <h3 class="govuk-heading-s">Relevant links</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li><a href="" class="govuk-link">Journey mapped out in Lucid board</a></li>
+                        <li><a href="" class="govuk-link">User research findings informing work</a></li>
+                        <li><a href="" class="govuk-link">User research findings from testing</a></li>
+                      </ul>
+
+                      <p class="govuk-body">Designer who worked on this: Natasha Dodds</p>
+                  
+                  </div>
+                  '
+                }
+              },
+                {
+                heading: {
+                  text: "Onboarding"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for How people read.</p>'
+                }
+              },
+              {
+                heading: {
+                  text: "Account management"
+                },
+                content: {
+                  html: '
+                  
+                  <div style="margin-top: 50px;">
+                    <h3 class="govuk-heading-s">Title of work (E.g. Adding branches to an organisation)</h3>
+                    <p>
+                      Description of the piece of work, mention if work came out of UR findings what we are addressing. E.g. Allowing the compensators to add branches to the organisation account.
+                    </p>
+
+                  {{ govukButton({
+                      text: "Start prototype",
+                      href: "/Agent/task-closure-ni.html"
+                    }) }}
+
+                    <h3 class="govuk-heading-s">Changes since the last iteration</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description</li>
+                        <li>description</li>
+                        <li>description</li>
+                      </ul>
+                
+                    <h3 class="govuk-heading-s">Links to individual pages</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+                        <li>description and <a href="" class="govuk-link">link to page with changes</a></li>
+                      </ul>
+                    
+                    <h3 class="govuk-heading-s">Links to error pages</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>description and <a href="" class="govuk-link">link to error page</a></li>
+                        <li>description and <a href="" class="govuk-link">link to error page</a></li>
+                      </ul>
+                    
+                        
+                    <h3 class="govuk-heading-s">Relevant links</h3>
+                    <p class="govuk-body"></p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li><a href="" class="govuk-link">Journey mapped out in Lucid board</a></li>
+                        <li><a href="" class="govuk-link">User research findings informing work</a></li>
+                        <li><a href="" class="govuk-link">User research findings from testing</a></li>
+                      </ul>
+
+                      <p class="govuk-body">Designer who worked on this: Natasha Dodds</p>
+                  
+                  </div>
+                  
+                  '
+                }
+              },
+              {
+                heading: {
+                  text: "Manage claims"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for Writing well for specialists.</p>'
+                }
+              },
+              {
+                heading: {
+                  text: "Benefit checks"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for Know your audience.</p>'
+                }
+              },
+              {
+                heading: {
+                  text: "Health treatment checks"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for How people read.</p>'
+                }
+              },
+                {
+                heading: {
+                  text: "Settlement"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for How people read.</p>'
+                }
+              },
+                {
+                heading: {
+                  text: "Payment"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for How people read.</p>'
+                }
+              },
+                {
+                heading: {
+                  text: "Reviews"
+                },
+                content: {
+                  html: '<p class="govuk-body">This is the content for How people read.</p>'
+                }
+              }
+            ]
+          }) }}
+
+        </div>
+
+
+  </div>
+</div>
+
+{% endblock %}
