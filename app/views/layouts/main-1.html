@@ -1,0 +1,35 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+    {% from "internal-service-header/macro.njk" import dwpHeader %}
+    {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{% block header %}
+
+
+    {{ govukHeader({
+    classes: "govuk-header--full-width-border"
+    }) }}
+    {{ govukServiceNavigation({
+    serviceName: "Manage your compensation recovery claims",
+    serviceUrl: "#",
+    navigation: [
+        {
+        href: "#",
+        text: "Sign out",
+        classes: "govuk-service-navigation__list"
+        }
+    ]
+    
+    }) 
+ }}
+
+
+
+{% endblock %}
+

@@ -4,3 +4,22 @@
 // 
 
 // Add extra styles here
+
+//sign out link comp header
+
+.govuk-service-navigation__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// phase banner 
+
+.govuk-header__content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.govuk-phase-banner--inline {
+  margin-left: 1rem; /* adjust spacing */
+}

@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% set pageName="Home" %}
 
@@ -19,13 +20,41 @@
           You can use this prototype to view designs and flows for both compensator and agent UI.
         </p>
 
-        <p>
-          <a href="agent-ui-index" class="govuk-link"> Go to prototypes for Agent UI</a>
-        </p>
+<form class="form" action="/persona-answer" method="post">
 
-           <p>
-          <a href="compensator-ui-index" class="govuk-link"> Go to prototypes for Compensator UI</a>
-        </p>
+{{ govukRadios({
+  name: "persona",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "compensator",
+      text: "Compensator Journeys"
+    },
+    {
+      value: "agent",
+      text: "Agent Journeys"
+    }
+   
+  ]
+}) }}
+
+
+
+
+
+{{ govukButton({
+  text: "View prototypes"
+}) }}
+</form>
+
+
+   
       </div>   
 
 
@@ -79,7 +108,7 @@
           <li>description</li>
         </ul>
   
-      <h3 class="govuk-heading-s">Links to individual pages</h3>
+      <h3 class="govuk-heading-s">Pages in the ticket</h3>
       <p class="govuk-body"></p>
         <ul class="govuk-list govuk-list--bullet">
           <li>description and <a href="" class="govuk-link">link to page with changes</a></li>

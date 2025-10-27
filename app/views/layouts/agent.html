@@ -11,28 +11,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% block header %}
 
-{% if (data['persona'] == "compensator") %}
-
-    {{ govukHeader({
-    classes: "govuk-header--full-width-border"
-    }) }}
-    {{ govukServiceNavigation({
-    serviceName: "Manage your compensation recovery claims",
-    serviceUrl: "#",
-    navigation: [
-        {
-        href: "#",
-        text: "Sign out",
-        classes: "govuk-service-navigation__list"
-        }
-    ]
-    
-    }) 
- }}
-
-
-
-    {% elseif (data['persona'] == "agent") %}
 
 
 {{
@@ -66,12 +44,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         })
 }}
 
-{% else %}
-    {{ govukHeader() }}
-    {{ govukServiceNavigation({
-        serviceName: serviceName
-    })}}
 
-{% endif%}
 {% endblock %}
 
