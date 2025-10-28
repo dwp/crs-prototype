@@ -8,7 +8,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
-//Persona selection
+//Persona header selection
 
 router.post('/persona-answer', function (req, res) {
     var persona = req.session.data['persona'];
@@ -38,4 +38,20 @@ router.post('/agent/task-answer', function (req, res) {
     }
 });
 
+
+// Task outcome - Confirm HS treatment NI
+router.post('/agent/task-outcome-answer', function (req, res) {
+    var taskOutcomes = req.session.data['taskOutcomes'];
+
+    if (taskOutcomes == "HS yes") {
+        res.redirect('/agent/confrimation-hs');
+
+    } else if (taskOutcomes == "HS no") {
+        res.redirect('/agent/confrimation-no-hs');
+        
+    } else if (taskOutcomes == "HS unknown") {
+        res.redirect('/agent/confrimation-hs-unknown');
+    }
+
+});
 

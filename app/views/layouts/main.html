@@ -8,6 +8,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     {% from "internal-service-header/macro.njk" import dwpHeader %}
     {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
     {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+    {% from "govuk/components/footer/macro.njk" import govukFooter %}
+     {% from "internal-service-footer/macro.njk" import dwpFooter %}
+
 
 {% block header %}
 
@@ -75,3 +78,44 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% endif%}
 {% endblock %}
 
+{% block footer %}
+
+{% if (data['persona'] == "compensator") %}
+
+{{ govukFooter({}) }}
+
+
+    {% elseif (data['persona'] == "agent") %}
+
+
+
+{{
+        dwpFooter({
+            meta: {
+                visuallyHiddenTitle: "About this website",
+                items: [
+                {
+                    href: "",
+                    text: "Accessibility statement"
+                },
+                {
+                    href: "",
+                    text: "Privacy"
+                }
+                ]
+            }
+        }) 
+}}
+
+
+
+{% else %}
+ 
+{{ govukFooter({}) }}
+
+{% endif%}
+
+   
+
+
+{% endblock %}

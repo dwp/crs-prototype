@@ -3,6 +3,7 @@
 {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
 
 
 
@@ -16,62 +17,79 @@
 
  <main class="govuk-main-wrapper" id="main-content">
           
-
+    
+  <form class="form" action="" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
  <span class="govuk-caption-l">Sam Smith</span>
-<h1 class="govuk-heading-l">NI HS tasks</h1>
-      <form class="form" action="task-answer" method="post">
+<h1 class="govuk-heading-l">Check if an injured person had hospital treatment</h1>
+ 
 
-{{ govukRadios({
-  name: "tasks",
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-items: [
-  {
-    value: "CRU-1",
-    html: "CRU 1 claim check <strong>(1 to do)</strong>",
-    hint: {
-      text: "Check and update missing and incorrect claim data"
-    }
-  },
-  {
-    value: "Legacy",
-    html: "Add claim to legacy CRU system <strong>(0 to do)</strong>",
-    hint: {
-      text: "Transfer claims that can't be processed in this service to the legacy CRU system"
-    }
-  },
-  {
-    value: "HS-Treatment",
-    html: "Check if an injured person had hospital treatment <strong>(1 to do)</strong>",
-    hint: {
-      text: "Complete actions from information provided about hospital treatment"
-    }
-  }
-]
-}) }}
+        <p class="govuk-body"><a class="govuk-link" href="#">Refresh list</a></p>
+
+      </div>    
   
+
+<div class="govuk-grid-column-full">
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-visually-hidden">Tasks for hospital treatment</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">CRU Reference</th>
+      <th scope="col" class="govuk-table__header">Date received</th>
+      <th scope="col" class="govuk-table__header">Task type</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+      <th scope="col" class="govuk-table__header">Assigned to</th>
+      <th scope="col" class="govuk-table__header">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">PAB978</th>
+      <td class="govuk-table__cell">5 November 2024</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          Call IP rep
+        </strong>
+      </td>
+      <td class="govuk-table__cell">
+         <strong class="govuk-tag">
+          New
+        </strong>
+      </td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="assign-ni-hs-tasks">Assign</a></td>
+    </tr>
+     <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">PAB994</th>
+      <td class="govuk-table__cell">7 November 2024</td>
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--grey">
+          Call IP rep
+        </strong>
+      </td>
+      <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--yellow">
+          In progress
+        </strong>
+      </td>
+      <td class="govuk-table__cell">Jane Dood</td>
+      <td class="govuk-table__cell"><a class="govuk-link" href="#">Action tasks</a></td>
+    </tr>
     
-  
-
-<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
-  Go to task list
-</button>
+  </tbody>
+</table>
 
 
-      </form>
+
+ 
 
     </div>
-  </div>
 
-
+</div>
+     </form>
         </main>
       </div>
 

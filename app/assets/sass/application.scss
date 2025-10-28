@@ -23,3 +23,11 @@
 .govuk-phase-banner--inline {
   margin-left: 1rem; /* adjust spacing */
 }
+
+
+//table content 
+
+.govuk-table {
+  width: 100%;
+  table-layout: auto; /* Allows columns to size based on content */
+}
