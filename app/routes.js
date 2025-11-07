@@ -55,3 +55,18 @@ router.post('/agent/task-outcome-answer', function (req, res) {
 
 });
 
+// Claim options 
+router.post('/agent/claim-options-answer', function (req, res) {
+    var claimOptions = req.session.data['claimOptions'];
+
+    if (claimOptions == "update-claim-details") {
+        res.redirect('/agent/update-claim-details');
+
+    } else if (claimOptions == "send-a-letter") {
+        res.redirect('/agent/confrimation-no-hs');
+        
+    } else if (claimOptions == "confirm-hospital-treatment-not-needed") {
+        res.redirect('/agent/confrimation-hs-unknown');
+    }
+
+});
