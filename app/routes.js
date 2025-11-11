@@ -63,10 +63,10 @@ router.post('/agent/claim-options-answer', function (req, res) {
         res.redirect('/agent/update-claim-details');
 
     } else if (claimOptions == "send-a-letter") {
-        res.redirect('/agent/confrimation-no-hs');
+        res.redirect('/agent/confrimation-hs-unknown');
         
     } else if (claimOptions == "confirm-hospital-treatment-not-needed") {
-        res.redirect('/agent/confrimation-hs-unknown');
+        res.redirect('/agent/confrimation-no-hs');
     }
 
 });

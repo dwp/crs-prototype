@@ -13,12 +13,15 @@
 <div class="govuk-width-container">
 
 
-<a href="#" class="govuk-back-link">Back</a>
+<a href="update-claim-details" class="govuk-back-link">Back</a>
 
      <main class="govuk-main-wrapper" id="main-content">
 
        <div class="govuk-grid-row"> 
     <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="confrimation-claim-details-updated" method="post">
+
 
          <span class="govuk-caption-l">NHS or HS treatment details</span>
 <h1 class="govuk-heading-l">Did the person receive hospital treatment?</h1>
@@ -49,7 +52,7 @@
     </legend>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="Confirmhospitaltreatmentreceived" name="Confirmhospitaltreatmentreceived" type="radio" value="Yes">
+        <input class="govuk-radios__input" id="Confirmhospitaltreatmentreceived" name="Confirmhospitaltreatmentreceived" type="radio" value="Yes" checked>
         <label class="govuk-label govuk-radios__label" for="Didthepersonreceivehospitaltreatment">
           Yes
         </label>
@@ -70,6 +73,7 @@
  
     
 </div>
+    </form>
     </div>
       </div>
     </main>
