@@ -1,0 +1,218 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+ {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+
+
+ <main class="govuk-main-wrapper" id="main-content">
+          
+    
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select a task outcome</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <h1 class="govuk-heading-l">Task details
+      <br>
+        <strong class="govuk-tag govuk-tag--yellow">
+         In progress
+        </strong>
+    </h1>
+
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+               Check if an injured person had hospital treatment 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           CRU reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PAB994
+          </dd>
+        </div>
+           <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of injured person
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bojen Westoros
+          </dd>
+        </div>
+           <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            9 April 1966
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Age
+          </dt>
+          <dd class="govuk-summary-list__value">
+            59 years old
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Compensator
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Moto Insurances Ltd
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Injured person's representative
+          </dt>
+          <dd class="govuk-summary-list__value">
+           Frank & co partners<br>Piccadilly Station Approach<br>Manchester<br>M60 7RA<br> 0161 820 7570
+          </dd>
+        </div>
+      </dl>
+
+   
+      <div style="margin-top: 50px; margin-bottom: 50px;">
+
+        <p class="govuk-body"><a class="govuk-link" href="view-claim-no-entry">View claim</a></p>
+
+        <h2 class="govuk-heading-m">Task instructions</h2>
+
+        <p class="govuk-body">
+          A hospital treatment  letter has been sent to the injured person’s representative. Complete a check on DRS to see if they have replied to this letter.
+        </p>
+
+          <p class="govuk-body">
+            If they have not replied to the letter, call the injured person's representative and find out if the injured person had hospital treatment. 
+          </p>
+
+          <p class="govuk-body">
+            Based on this, decide what ‘task outcome’ to choose below.
+          </p>
+
+          <h3 class="govuk-heading-s">
+            If the representative has said the injured person did receive hospital treatment:
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="claim-options">go to claim options (opens in a new tab)</a> and choose 'update claim details' and change 'HS hospital treatment' from No to Yes </li>
+            <li>return to this page and choose ‘Close task – Hospital treatment took place’</li>
+          </ul>
+
+
+         <h3 class="govuk-heading-s">
+          If the representative has said the injured person did not receive hospital treatment: 
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="view-claim-no-entry">go to claim details (opens in a new tab)</a> to review injuries: if injuries are not serious, go to claim options and choose 'Confirm HS treatment not needed' </li>
+            <li>return to this page and choose ‘Close task – Hospital treatment did not take place'</li>
+            <li>if injuries are serious, go to claim options and choose 'Send a letter', followed by 'CRU COMP SI IP'</li>
+            <li>return to this page and choose ‘Close task – Sent injured person hospital treatment confirmation letter'</li>
+          </ul>
+
+
+               <h3 class="govuk-heading-s">
+          If the representative has not responded to the letter or call:
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link" href="claim-options">go to claim options (opens in a new tab)</a> and choose 'Send a letter', followed by 'CRU COMP SI IP'</li>
+            <li>return to this page and choose ‘Close task – Sent injured person hospital treatment confirmation letter'   </li>
+          
+          </ul>
+
+      </div>
+
+  <form class="form" action="task-outcome-answer" method="post">
+    
+
+        {{ govukRadios({
+          name: "taskOutcomes",
+          fieldset: {
+            legend: {
+              text: "Task Outcomes",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "HS yes",
+              text: " Close task – Hospital treatment took place"
+            },
+            {
+              value: "HS no",
+              text: "Close task - Hospital treatment did not take place "
+            },
+            {
+              value: "HS unknown",
+              text: "Close task - Sent injured person hospital treatment confirmation letter"
+            }
+          ],
+            errorMessage: {
+              text: "Select a task outcome"
+            }
+        }) }}
+
+
+        
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+        <p class="govuk-body" style="display: inline-block; margin-left: 20px; margin-top: 10px;"><a class="govuk-link" href="assign-ni-hs-tasks">Cancel</a></p>
+     
+
+
+
+
+        
+
+ </form>
+
+    </div>
+
+</div>
+    
+        </main>
+      </div>
+
+{% endblock %}
