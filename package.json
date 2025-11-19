@@ -7,7 +7,9 @@
   "dependencies": {
     "@dwp/dwp-frontend": "^3.4.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
+    "body-parser": "^2.2.0",
     "govuk-frontend": "5.12.0",
-    "govuk-prototype-kit": "13.18.1"
+    "govuk-prototype-kit": "13.18.1",
+    "path-to-regexp": "^8.3.0"
   }
 }
