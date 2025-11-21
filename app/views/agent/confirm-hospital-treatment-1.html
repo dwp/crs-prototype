@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+
+<a href="update-claim-details" class="govuk-back-link">Back</a>
+
+     <main class="govuk-main-wrapper" id="main-content">
+
+       <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="update-claim-details-hs-yes" method="post">
+
+
+         <span class="govuk-caption-l">NHS or HS treatment details</span>
+<h1 class="govuk-heading-l">Did the person receive hospital treatment?</h1>
+
+
+<p>
+ You previously selected that the IP recieved hopsital treatment. 
+ </p>
+ <p>
+ You can not change this in CRS as a legacy task has now been created on CRU. 
+</p>
+<p>
+ If you need to update the claim you do this in CRU.  
+</p>
+     
+      <div style="margin-top: 50px;">
+      {{ govukButton({
+        text: "Return to claim updates"
+      }) }}
+      </div>
+
+
+
+    </form>
+    </div>
+      </div>
+    </main>
+</div>
+
+
+
+
+{% endblock %}
+
