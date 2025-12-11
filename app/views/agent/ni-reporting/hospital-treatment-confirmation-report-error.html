@@ -1,0 +1,161 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+ {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+
+<a href="update-claim-details" class="govuk-back-link">Back</a>
+
+     <main class="govuk-main-wrapper" id="main-content">
+
+       <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#date-from-error">Enter a date from</a>
+        </li>
+        <li>
+              <a href="#date-from-error">Enter a date to</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <form class="form" action="confrimation-claim-details-updated" method="post">
+
+
+
+         <span class="govuk-caption-l"></span>
+<h1 class="govuk-heading-l">Download a hospital treatment confirmation report</h1>
+
+<p class="govuk-body">
+  This report only includes motor liability and public liability claims managed using the digital service.
+</p>
+
+<p class="govuk-body">
+  This report only includes motor liability and public liability claims managed using the digital service.
+</p>
+
+
+  <h2 class="	govuk-heading-s">Download data with a date range</h2>
+
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-from-hint date-from-error">
+      <legend class="govuk-fieldset__legend">
+      Date from
+    </legend>
+    <div id="date-from-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+    <p id="date-from-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Enter a date from
+    </p>
+    <div class="govuk-date-input-from" id="date-from">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-from-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-from-day" name="date-from-day" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-from-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-from-month" name="date-from-month" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-from-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-from-year" name="date-from-year" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+</br>
+</br>
+
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-to-hint date-to-error">
+      <legend class="govuk-fieldset__legend">
+      Date to
+    </legend>
+    <div id="date-to-hint" class="govuk-hint">
+      For example, 27 3 2007
+    </div>
+    <p id="date-to-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> Enter a date to
+    </p>
+    <div class="govuk-date-input-to" id="date-to">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-to-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-day" name="date-to-day" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-to-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-month" name="date-to-month" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="date-to-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-to-year" name="date-to-year" type="text" value="" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+      <br>
+      {{ govukButton({
+  text: "Download report (CSV)"
+}) }}
+    
+    
+ 
+    
+</div>
+    </form>
+    </div>
+      </div>
+    </main>
+</div>
+{% endblock %}
+
