@@ -29,11 +29,9 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#date-from-error">Enter a date from</a>
+          <a href="#date-from-error">Date to must be a real date</a>
         </li>
-        <li>
-              <a href="#date-from-error">Enter a date to</a>
-        </li>
+   
       </ul>
     </div>
   </div>
@@ -78,45 +76,42 @@ This report only includes motor liability and public liability claims managed us
 
   <h2 class="	govuk-heading-s">Download data with a date range</h2>
 
-<div class="govuk-form-group govuk-form-group--error">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-from-hint date-from-error">
-      <legend class="govuk-fieldset__legend">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+   <legend class="govuk-fieldset__legend">
       Date from
     </legend>
-    <div id="date-from-hint" class="govuk-hint">
+    <div id="passport-issued-hint" class="govuk-hint">
       For example, 27 3 2007
     </div>
-    <p id="date-from-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> Enter a date from
-    </p>
-    <div class="govuk-date-input-from" id="date-from">
+    <div class="govuk-date-input" id="passport-issued">
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-from-day">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
             Day
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-from-day" name="date-from-day" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" value="09" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-from-month">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
             Month
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-from-month" name="date-from-month" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" value="10" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="date-from-year">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
             Year
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-from-year" name="date-from-year" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" value="2025" inputmode="numeric">
         </div>
       </div>
     </div>
   </fieldset>
-</div>
+  </div>
 
 
 </br>
@@ -131,7 +126,7 @@ This report only includes motor liability and public liability claims managed us
       For example, 27 3 2007
     </div>
     <p id="date-to-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> Enter a date to
+      <span class="govuk-visually-hidden">Error:</span> Date to must be a real date
     </p>
     <div class="govuk-date-input-to" id="date-to">
       <div class="govuk-date-input__item">
@@ -139,7 +134,7 @@ This report only includes motor liability and public liability claims managed us
           <label class="govuk-label govuk-date-input__label" for="date-to-day">
             Day
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-day" name="date-to-day" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-day" name="date-to-day" type="text" value="11" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
@@ -147,7 +142,7 @@ This report only includes motor liability and public liability claims managed us
           <label class="govuk-label govuk-date-input__label" for="date-to-month">
             Month
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-month" name="date-to-month" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-month" name="date-to-month" type="text" value="13" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
@@ -155,7 +150,7 @@ This report only includes motor liability and public liability claims managed us
           <label class="govuk-label govuk-date-input__label" for="date-to-year">
             Year
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-to-year" name="date-to-year" type="text" value="" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-to-year" name="date-to-year" type="text" value="2025" inputmode="numeric">
         </div>
       </div>
     </div>
