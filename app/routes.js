@@ -39,6 +39,25 @@ router.post('/agent/task-answer', function (req, res) {
 });
 
 
+
+// Tasks - call task v2
+router.post('/agent/ni-reporting/call-task-v2/ni-task-answer', function (req, res) {
+    var task = req.session.data['task'];
+
+    if (task == "CRU 1") {
+        res.redirect('/agent/ni-reporting/call-task-v2/cru1-tasks');
+    } 
+    else if (task == "Legacy") {
+        res.redirect('/agent/ni-reporting/call-task-v2/legacy-tasks');
+    } 
+    else if (task == "HS Treatment") {
+        res.redirect('/agent/ni-reporting/call-task-v2/ni-hs-tasks');
+    } 
+    else {
+        res.redirect('/agent/ni-reporting/call-task-v2/task-list'); // fallback route
+    }
+});
+
 // Task outcome - Confirm HS treatment NI
 router.post('/agent/task-outcome-answer', function (req, res) {
     var taskOutcomes = req.session.data['taskOutcomes'];
@@ -55,6 +74,22 @@ router.post('/agent/task-outcome-answer', function (req, res) {
 
 });
 
+
+// Task outcome - Confirm HS treatment NI - call task v2
+router.post('/agent/ni-reporting/call-task-v2/ni-task-outcome-answer', function (req, res) {
+    var taskOutcomes = req.session.data['taskOutcomes'];
+
+    if (taskOutcomes == "HS yes") {
+        res.redirect('/agent/ni-reporting/call-task-v2/confrimation-hs');
+
+    } else if (taskOutcomes == "HS no") {
+        res.redirect('/agent/ni-reporting/call-task-v2/confrimation-no-hs');
+        
+    } else if (taskOutcomes == "HS unknown") {
+        res.redirect('/agent/ni-reporting/call-task-v2/confrimation-hs-unknown');
+    }
+
+});
 // Claim options 
 router.post('/agent/claim-options-answer', function (req, res) {
     var claimOptions = req.session.data['claimOptions'];
@@ -71,3 +106,34 @@ router.post('/agent/claim-options-answer', function (req, res) {
 
 });
 
+// Claim options -call task v2
+router.post('/agent/ni-reporting/call-task-v2/ni-claim-options-answer', function (req, res) {
+    var claimOptions = req.session.data['claimOptions'];
+
+    if (claimOptions == "update-claim-details") {
+        res.redirect('/agent/ni-reporting/call-task-v2/update-claim-details');
+
+    } else if (claimOptions == "send-a-letter") {
+        res.redirect('/agent/ni-reporting/call-task-v2/confirmation-hs-unknown-send-letter');
+        
+    } else if (claimOptions == "confirm-hospital-treatment-not-needed") {
+        res.redirect('/agent/ni-reporting/call-task-v2/htc-outcome-source1');
+    }
+
+});
+
+// Claim options -call task v2
+router.post('/agent/ni-reporting/call-task-v2/ni-claim-options-answer1', function (req, res) {
+    var claimOptions = req.session.data['claimOptions'];
+
+    if (claimOptions == "update-claim-details") {
+        res.redirect('/agent/ni-reporting/call-task-v2/update-claim-details-hs-yes');
+
+    } else if (claimOptions == "send-a-letter") {
+        res.redirect('/agent/ni-reporting/call-task-v2/confirmation-hs-unknown-send-letter');
+        
+    } else if (claimOptions == "confirm-hospital-treatment-not-needed") {
+        res.redirect('/agent/ni-reporting/call-task-v2/htc-outcome-source1');
+    }
+
+});

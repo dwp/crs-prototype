@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+     <div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title">
+    Claim details updated
+  </h1>
+  <div class="govuk-panel__body">
+    Your reference number<br><strong>NIR001</strong>
+  </div>
+</div>
+
+   
+      <h2 class="govuk-heading-m">What you can do next</h2>
+
+      <p class="govuk-body">
+          This claim will move to the legacy CRU system. A task has been created to transfer claim details. 
+      </p>
+
+      <p class="govuk-body">
+          <a href="view-claim-details-updated" class="govuk-link">View claim</a>
+      </p>
+   
+      <p class="govuk-body">
+        <a href="tasks" class="govuk-link">Back to tasks</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

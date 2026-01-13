@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+
+  <a href="update-claim-details" class="govuk-back-link">Back to find a claim</a>
+
+ <main class="govuk-main-wrapper" id="main-content">
+          
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">Search results</h1>
+ <form class="form" action="ni-task-answer" method="post">
+
+<ul class="govuk-list">
+                
+                    <li>
+                        <div class="card full">
+                            <h2 class="govuk-heading-s">
+                                <a href="view-claim-details-updated" id="claim-1-view-link" class="govuk-body govuk-link govuk-!-display-block govuk-!-margin-bottom-0">
+                                      Bojen Westoros
+                                </a>
+                            </h2>
+                            <div class="card-inner-panel">
+                                <ul class="govuk-list govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                    <li id="case-1-reference">CRU reference number: AAA123</li>
+                                    <li id="case-1-nino">National insurance number: SP010203A</li>
+                                    <li id="case-1-dob">Date of birth: 9 April 1966</li>
+                                    <li id="case-1-doi">Date of injury: 8 January 2023</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                
+
+                
+            </ul>
+
+      </form>
+
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
+

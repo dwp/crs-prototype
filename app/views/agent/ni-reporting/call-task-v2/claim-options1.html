@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper" id="main-content">
+
+
+  <div class="govuk-form-group">
+    <form class="form" action="ni-claim-options-answer1" method="post">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Claim options
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="claimOptions" name="claimOptions" type="radio" value="update-claim-details">
+        <label class="govuk-label govuk-radios__label" for="ClaimOptions">
+          Update claim details
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="claimoptions-2" name="claimOptions" type="radio" value="send-a-letter">
+        <label class="govuk-label govuk-radios__label" for="Claimoptions-2">
+          Send a letter
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="claimOptions-3" name="claimOptions" type="radio" value="confirm-hospital-treatment-not-needed">
+        <label class="govuk-label govuk-radios__label" for="ClaimOptions-3">
+          Confirm hospital treatment not needed
+        </label>
+      </div>
+      
+        </div>
+    </fieldset>
+      </div>
+
+       <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+      
+
+     </form>
+</main>
+ </div>
+{% endblock %} 
+
+ 

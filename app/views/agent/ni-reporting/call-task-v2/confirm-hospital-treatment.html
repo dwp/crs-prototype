@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+
+<a href="update-claim-details" class="govuk-back-link">Back</a>
+
+     <main class="govuk-main-wrapper" id="main-content">
+
+       <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="htc-outcome-source" method="post">
+
+
+         <span class="govuk-caption-l">NHS or HS treatment details</span>
+<h1 class="govuk-heading-l">Did the person receive hospital treatment?</h1>
+
+<p class="govuk-body">This includes:</p>
+
+ <ul class="govuk-list govuk-list--bullet">
+        <li>treatment at any NHS or HS hospital</li>
+        <li>treatment at any NHS or HS urgent care centre</li>
+        <li>a trip in an NHS or HS ambulance </li>
+      </ul>
+
+    <p class="govuk-body">
+          This <strong class="govuk-!-font-weight-bold">does not</strong>
+          include:
+        </p>
+
+         <ul class="govuk-list govuk-list--bullet">
+        <li>treatment at an NHS or HS GP surgery</li>
+        <li>treatment at a private hospital</li>
+        <li>a trip in a private ambulance </li>
+      </ul>
+
+    <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Confirmhospitaltreatmentreceived" name="Confirmhospitaltreatmentreceived" type="radio" value="Yes">
+        <label class="govuk-label govuk-radios__label" for="Didthepersonreceivehospitaltreatment">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Confirmhospitaltreatmentreceived-2" name="Confirmhospitaltreatmentreceived" type="radio" value="No" checked>
+        <label class="govuk-label govuk-radios__label" for="Didthepersonreceivehospitaltreatment-2">
+          No
+        </label>
+      </div>
+       </div>
+      <br>
+      {{ govukButton({
+  text: "Continue"
+}) }}
+    
+    
+ 
+    
+</div>
+    </form>
+    </div>
+      </div>
+    </main>
+</div>
+{% endblock %}
+

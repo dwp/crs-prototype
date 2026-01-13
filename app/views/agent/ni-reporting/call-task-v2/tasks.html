@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+
+
+ <main class="govuk-main-wrapper" id="main-content">
+          
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ <span class="govuk-caption-l">Sam Smith</span>
+<h1 class="govuk-heading-l">Tasks</h1>
+ <form class="form" action="ni-task-answer" method="post">
+
+{{ govukRadios({
+  name: "task",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+items: [
+  {
+    value: "CRU 1",
+    html: "CRU 1 claim check <strong>(1 to do)</strong>",
+    hint: {
+      text: "Check and update missing and incorrect claim data"
+    }
+  },
+  {
+    value: "Legacy",
+    html: "Add claim to legacy CRU system <strong>(0 to do)</strong>",
+    hint: {
+      text: "Transfer claims that can't be processed in this service to the legacy CRU system"
+    }
+  },
+  {
+    value: "HS Treatment",
+    html: "Check if an injured person had hospital treatment <strong>(1 to do)</strong>",
+    hint: {
+      text: "Complete actions from information provided about hospital treatment"
+    }
+  }
+]
+}) }}
+  
+    
+{{ govukButton({
+  text: "Go to task list"
+}) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
