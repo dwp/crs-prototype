@@ -1,0 +1,203 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper" id="main-content">
+
+  <form class="form" action="confrimation-hs-unknown" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-l">
+    Are these serious injuries?
+  </h1>
+
+
+   <p class="govuk-body" style="margin-top: 30px;">
+          There is no confirmation of hospital treatment taking place. Review the injuries below and decide if they were serious enough for hospital treatment. 
+        </p>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px; margin-bottom: 10px;">Injury details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-top-4">
+          
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Whiplash
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Yes
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                <a class="govuk-link" href="whiplash-guard?backtocheckanswers=true&">-->
+                            <!--                  Change<span class="govuk-visually-hidden"> whiplash</span>-->
+                            <!--                </a>-->
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Other injuries
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Yes
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                      <a class="govuk-link" href="injury-guard?backtocheckanswers=true&">-->
+                            <!--                          Change<span class="govuk-visually-hidden"> other injuries</span>-->
+                            <!--                      </a>-->
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Types of injury
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+
+                               <ul class="govuk-list govuk-list--bullet">
+                                <li>
+                                    Physical injury other than whiplash
+                                </li>
+                                <li>
+                                    Psychological injuries
+                                </li>
+                                <li>
+                                    Neurological injuries
+                                </li>
+                            </ul>
+                           
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                      <a class="govuk-link" href="other-injuries?backtocheckanswers=true&">-->
+                            <!--                          Change<span class="govuk-visually-hidden"> types of injury</span>-->
+                            <!--                      </a>-->
+                        </dd>
+                    </div>
+
+                    <!-- Physical injuries -->
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Physical injury other than whiplash
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+
+                            <!-- start Ribs, chest or torso injuries -->
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Ribs, chest or torso injuries</h3><br />
+                            <p>Details</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>
+                                    Pain or discomfort
+                                </li>
+                            </ul>
+                            <p>Injury location</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Left side</li>
+                            </ul>
+                            <!-- end Ribs, chest or torso injuries -->
+
+                            <!-- start Leg, knee or ankle injuries -->
+                            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Leg, knee or ankle injuries</h3><br />
+                            <p>Details</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>
+                                    Pain or discomfort
+                                </li>
+                                <li>
+                                    Fracture
+                                </li>
+                            </ul>
+                            <p>Injury location</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Left leg</li>
+                            </ul>
+                            <!-- end Leg, knee, ankle or foot -->
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                <a class="govuk-link" href="where-is-the-injury?backtocheckanswers=true&">-->
+                            <!--                  Change<span class="govuk-visually-hidden"> physical injuries</span>-->
+                            <!--                </a>-->
+                        </dd>
+                    </div>
+
+                    <!-- Psychological injuries -->
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Psychological injuries
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Travel anxiety
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                <a class="govuk-link" href="psychological?backtocheckanswers=true&">-->
+                            <!--                  Change<span class="govuk-visually-hidden"> psychological injury</span>-->
+                            <!--                </a>-->
+                        </dd>
+                    </div>
+
+                    <!-- Neurological injuries -->
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Neurological injuries
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Change to senses
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <!--                <a class="govuk-link" href="neurological?backtocheckanswers=true&">-->
+                            <!--                  Change<span class="govuk-visually-hidden"> neurological injury</span>-->
+                            <!--                </a>-->
+                        </dd>
+                    </div>
+
+
+        </dl>
+
+
+        <div class="govuk-form-group" style="margin-top: 50px;">
+         <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+       Do you think these are serious injuries?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changedName">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+       <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+      
+
+     </form>
+</main>
+ </div>
+{% endblock %} 

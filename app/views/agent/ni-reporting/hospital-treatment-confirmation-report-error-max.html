@@ -31,7 +31,9 @@
         <li>
           <a href="#date-from-error">Start date must be within 90 days of end date </a>
         </li>
-        
+         <li>
+          <a href="#date-from-error">End date must be within 90 days of start date </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -43,10 +45,7 @@
 
 
          <span class="govuk-caption-l"></span>
-<h1 class="govuk-heading-l">Download a hospital treatment confirmation report</h1>
 
-<p class="govuk-body">
-This report only includes motor liability and public liability claims managed using the digital service.
 </p><h1 class="govuk-heading-l">Download a hospital treatment confirmation report</h1>
 
 <p class="govuk-body">
@@ -118,42 +117,45 @@ This report only includes motor liability and public liability claims managed us
 </br>
 </br>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-    <legend class="govuk-fieldset__legend">
+<div class="govuk-form-group govuk-form-group--error">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="date-to-hint date-to-error">
+      <legend class="govuk-fieldset__legend">
       End date
     </legend>
-    <div id="passport-issued-hint" class="govuk-hint">
+    <div id="date-to-hint" class="govuk-hint">
       For example, 25 4 2026
     </div>
-    <div class="govuk-date-input" id="passport-issued">
+    <p id="date-to-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> End date must be within 90 days of start date
+    </p>
+    <div class="govuk-date-input-to" id="date-to">
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          <label class="govuk-label govuk-date-input__label" for="date-to-day">
             Day
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text"  value="11" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-day" name="date-to-day" type="text" value="" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          <label class="govuk-label govuk-date-input__label" for="date-to-month">
             Month
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text"  value="04" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="date-to-month" name="date-to-month" type="text" value="" inputmode="numeric">
         </div>
       </div>
       <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          <label class="govuk-label govuk-date-input__label" for="date-to-year">
             Year
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text"  value="2025" inputmode="numeric">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="date-to-year" name="date-to-year" type="text" value="" inputmode="numeric">
         </div>
       </div>
     </div>
   </fieldset>
-  </div>
+</div>
 
 
       <br>

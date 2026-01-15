@@ -86,7 +86,7 @@ router.post('/agent/ni-reporting/call-task-v2/ni-task-outcome-answer', function 
         res.redirect('/agent/ni-reporting/call-task-v2/confrimation-no-hs');
         
     } else if (taskOutcomes == "HS unknown") {
-        res.redirect('/agent/ni-reporting/call-task-v2/confrimation-hs-unknown');
+        res.redirect('/agent/ni-reporting/call-task-v2/serious-injury');
     }
 
 });
