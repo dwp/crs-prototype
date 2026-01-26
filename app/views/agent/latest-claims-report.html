@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+ {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+
+<a href="dashboard-page" class="govuk-back-link">Back</a>
+
+     <main class="govuk-main-wrapper" id="main-content">
+
+       <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form class="form" action="#" method="post">
+
+
+
+         <span class="govuk-caption-l"></span>
+<h1 class="govuk-heading-l">Download latest claims report</h1>
+
+<p class="govuk-body">
+This report only includes motor liability and public liability claims managed using the digital service.
+When downloaded, it will show the latest claims. 
+
+</p>
+
+
+<a aria-label="Download latest claims report" href="#" download="#" class="govuk-button" data-module="govuk-button">Download report (CSV)</a>
+    
+ 
+
+    
+</div>
+    </form>
+    </div>
+      </div>
+    </main>
+</div>
+{% endblock %}
+
