@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="govuk-grid-row">
+
+  <span class="govuk-caption-l">Sam Smith</span>
+<h1 class="govuk-heading-l">Tasks</h1>
+ <form class="form" action="task-answer" method="post">
+
+
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-l">Sam Smith</span>
+      <h1 class="govuk-heading-xl">Add claim to legacy CRU</h1>
+
+      <p class="govuk-body"><a href="" class="govuk-link">Refresh list</a></p>
+
+      <table class="govuk-table govuk-!-margin-top-2">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header app-custom-class">CRU reference</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Date created</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Description</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Assigned to</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">PAB123</td>
+          <td class="govuk-table__cell">6/12/2022</td>
+          <td class="govuk-table__cell" style="width: 40%;">Regional address change</td>
+          <td class="govuk-table__cell">Sam Smith</td>
+          <td class="govuk-table__cell"><a href="action-legacy-task" class="govuk-link">Action task</a></td>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container"> 
+
+<a href="#" class="govuk-back-link">Back</a>
+
+<main class="govuk-main-wrapper" id="main-content">
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="#" method="post">
+    
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">    
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+          You can only update the address if it has a Northern Ireland postcode. To update an address with a Great Britain postcode, you must create a legacy task
+      <a class="govuk-notification-banner__link" href="#">Create legacy task</a>.
+    </p>
+  </div>
+</div>
+
+    
+    
+
+
+    <h1 class="govuk-heading-xl">What is the injured person's address?</h1>
+
+  </div>
+</div>
+
+
+<p class="govuk-body">This address will be used for correspondence from Compensation Recovery Unit.
+</p>
+
+<div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+      Enter postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+  </div>   
+  
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+  Find address
+</button>
+
+
+
+
+
+</form>
+</div>
+
+
+        </form>
+        
+        </div>
+    </div>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+</main>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

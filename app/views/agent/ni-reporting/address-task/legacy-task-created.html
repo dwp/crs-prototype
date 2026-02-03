@@ -1,0 +1,293 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container"> 
+
+<a href="injured-person-address-select-ni" class="govuk-back-link">Back</a> 
+
+<main class="govuk-main-wrapper" id="main-content"> 
+    <form class="form" action="#" method="post"> 
+
+    <div class="govuk-grid-row"> 
+     <div class="govuk-grid-column-two-thirds">
+      
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Success
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      Legacy task created
+    </h3>
+  </div>
+</div>
+
+<span class="govuk-caption-l">CRU reference number</span>
+    <h1 class="govuk-heading-l">PAB680
+    </h1>
+    <strong class="govuk-tag govuk-tag--green" > 
+  Certificate issued
+</strong>
+
+    <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of liability 
+          </dt>
+          <dd class="govuk-summary-list__value">
+             Motor
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of injured person
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bojen Westoros
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            9 April 1966
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           National insurance number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PAB994
+          </dd>
+        </div>
+           <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit interest
+          </dt>
+          <dd class="govuk-summary-list__value">
+            None
+          </dd>
+        </div>
+           <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date claim registered
+          </dt>
+          <dd class="govuk-summary-list__value">
+            25 Spetember 2025
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-inset-text" style="margin-top: 50px; margin-bottom: 50px;">
+            <a class="govuk-link" href="claim-options1">Claim options</a>
+          </div>
+
+          <div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#history">
+        History
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#certificates">
+       Certificates
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#details">
+       Details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#charges">
+       Charges
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="history">
+    <h2 class="govuk-heading-l">History</h2>
+
+    <p class="govuk-body" style="margin-bottom: 50px;"><a class="govuk-link" href="#">Add note</a></p>
+    
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">          
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Legacy task created</h2>
+              <p class="govuk-body" style="margin-bottom: 0;">Manually created by Test Admin agent</p>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Claim details updated</h2>
+              <p class="govuk-body" style="margin-bottom: 0;">Injured person address line 2 updated from "Thrupp" to "Belfast"</p>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+
+
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Claim details updated</h2>
+              <p class="govuk-body" style="margin-bottom: 0;">Injured person address line 1 updated from "4 High street" to "8 Russell Pl"</p>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+
+
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Claim details updated </h2>
+              <p class="govuk-body" style="margin-bottom: 0;">Injured person postcode updated from "SW11 4DY" to "BT2 8PU"</p>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+
+          </ol>
+
+          
+        </div>
+  </div>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="certificates">
+    <h2 class="govuk-heading-l">Certificates</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case manager</th>
+          <th scope="col" class="govuk-table__header">Cases opened</th>
+          <th scope="col" class="govuk-table__header">Cases closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">David Francis</td>
+          <td class="govuk-table__cell">24</td>
+          <td class="govuk-table__cell">18</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Paul Farmer</td>
+          <td class="govuk-table__cell">16</td>
+          <td class="govuk-table__cell">20</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Rita Patel</td>
+          <td class="govuk-table__cell">24</td>
+          <td class="govuk-table__cell">27</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="details">
+    <h2 class="govuk-heading-l">Details</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case manager</th>
+          <th scope="col" class="govuk-table__header">Cases opened</th>
+          <th scope="col" class="govuk-table__header">Cases closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">David Francis</td>
+          <td class="govuk-table__cell">98</td>
+          <td class="govuk-table__cell">95</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Paul Farmer</td>
+          <td class="govuk-table__cell">122</td>
+          <td class="govuk-table__cell">131</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Rita Patel</td>
+          <td class="govuk-table__cell">126</td>
+          <td class="govuk-table__cell">142</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="charges">
+    <h2 class="govuk-heading-l">Charges</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case manager</th>
+          <th scope="col" class="govuk-table__header">Cases opened</th>
+          <th scope="col" class="govuk-table__header">Cases closed</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">David Francis</td>
+          <td class="govuk-table__cell">1380</td>
+          <td class="govuk-table__cell">1472</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Paul Farmer</td>
+          <td class="govuk-table__cell">1129</td>
+          <td class="govuk-table__cell">1083</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Rita Patel</td>
+          <td class="govuk-table__cell">1539</td>
+          <td class="govuk-table__cell">1265</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+      
+
+
+
+
+        
+    </div>
+    </div>
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+         <p class="govuk-body">
+          <a href="injured-person-address-select-gb" class="govuk-link">Cancel</a>
+         </p>
+ </form>
+</main> 
+</div>
+{% endblock %} 
+
+

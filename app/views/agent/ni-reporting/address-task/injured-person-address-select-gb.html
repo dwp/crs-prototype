@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="#" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="legacy-task-created" method="post">
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">The injured person</span>
+                What is their home address?
+            </h1>
+
+            <h2 class="govuk-heading-m">Postcode</h2>
+            <p class="govuk-body">SW11 4DY</p>
+            
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="choose-ip-address">
+                    Select an address
+                </label>
+                <select class="govuk-select" id="sort" name="sort">
+                <option value="published">8 Russell Pl, Belfast, BT2 8PU</option>
+                <option value="updated" selected>1 Granville Avenue, Newcastle upon Tyne, NE12 7BB</option>
+                <option value="views">Address 3</option>
+                <option value="comments">Address 4</option>
+  </select>
+            </div>
+
+            <p class="govuk-body"><a href="injured-person-address-manual-gb">I can't find the address in the list</a></p>
+
+            <button class="govuk-button" data-module="govuk-button">
+                Save and create legacy task
+            </button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
