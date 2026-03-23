@@ -1,0 +1,366 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+ {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+
+<a href="dashboard-page" class="govuk-back-link">Back</a>
+
+     <main class="govuk-main-wrapper" id="main-content">
+
+       <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form class="form" action="#" method="post">
+
+
+
+         <span class="govuk-caption-l"></span>
+<h1 class="govuk-heading-l">XML record [ID]</h1>
+
+
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Claim reference
+    </dt>
+    <dd class="govuk-summary-list__value">
+      TST002, data
+    </dd>
+  </div>
+</dl>
+
+</br>
+
+<h2 class="govuk-heading-m">General information</h2>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Insurer specific
+    </dt>
+    <dd class="govuk-summary-list__value">
+     MOCK_INSPEC_REF
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Form type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      04D
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Reject code
+    </dt>
+    <dd class="govuk-summary-list__value">
+      61
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Record type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      IMC
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Liability code
+    </dt>
+    <dd class="govuk-summary-list__value">
+      3
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Hospital attended flag
+    </dt>
+    <dd class="govuk-summary-list__value">
+      N
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Claimant employed flag
+    </dt>
+    <dd class="govuk-summary-list__value">
+      N
+    </dd>
+  </div>
+     <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Rta flag
+    </dt>
+    <dd class="govuk-summary-list__value">
+      N
+    </dd>
+  </div>   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Injury description
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Neck, shoulder, back
+    </dd>
+  </div>
+</dl>
+  
+</br>
+
+<h2 class="govuk-heading-m">Compensator details</h2>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Compensator name
+    </dt>
+    <dd class="govuk-summary-list__value">
+     MOCK_COMP
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Compensator address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1 Test St
+    </br>
+      T3 5ST
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Compensator case reference
+    </dt>
+    <dd class="govuk-summary-list__value">
+      MOCK_COMP_REF
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Compensator telephone
+    </dt>
+    <dd class="govuk-summary-list__value">
+      01234567891
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Compensator fax
+    </dt>
+    <dd class="govuk-summary-list__value">
+      134562
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Policy holder
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Luke Skywalker
+    </dd>
+  </div>
+</dl>
+
+</br>
+
+<h2 class="govuk-heading-m">Claimant details</h2>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      National Insurance number
+    </dt>
+    <dd class="govuk-summary-list__value">
+     NR112233A
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Surname
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Bloggs
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Forename
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Joe
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Title
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Date of bith
+    </dt>
+    <dd class="govuk-summary-list__value">
+      200001001
+    </dd>
+  </div>
+     <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of accident
+    </dt>
+    <dd class="govuk-summary-list__value">
+      20220621
+    </dd>
+  </div>   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Claimant sex
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+    Claimant address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1 Mock Ave
+      </br>
+      Mock Road
+       </br>
+      Test Town
+       </br>
+      T3 1ST  
+    </dd>
+  </div>
+    
+</dl>
+
+</br>
+
+
+<h2 class="govuk-heading-m">CRU details</h2>
+<dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      CRU reference
+    </dt>
+    <dd class="govuk-summary-list__value">
+      TST002
+    </dd>
+  </div>
+</dl>
+
+</br>
+
+<h2 class="govuk-heading-m">File details</h2>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      File origin
+    </dt>
+    <dd class="govuk-summary-list__value">
+    DLG
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Flow type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      OUTBOUND_CERTREJECT
+    </dd>
+  </div>
+    <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Form type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      CRU04D
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     ID
+    </dt>
+    <dd class="govuk-summary-list__value">
+      2063
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Reason
+    </dt>
+    <dd class="govuk-summary-list__value">
+      null
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Reason code
+    </dt>
+    <dd class="govuk-summary-list__value">
+      null
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Reference
+    </dt>
+    <dd class="govuk-summary-list__value">
+      null
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Status
+    </dt>
+    <dd class="govuk-summary-list__value">
+      EPARTNER_SENT
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     Time stamp
+    </dt>
+    <dd class="govuk-summary-list__value">
+      2024-01-02 11:19:36
+    </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+     XML type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      CRU4_BODY
+    </dd>
+  </div>
+</dl>
+
+<a aria-label="View XML record" href="#" download="#" class="govuk-link" data-module="govuk-button">View raw XML record</a>
+    
+ 
+</div>
+    </form>
+    </div>
+      </div>
+    </main>
+</div>
+{% endblock %}
+
