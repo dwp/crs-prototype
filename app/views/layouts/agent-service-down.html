@@ -1,0 +1,53 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+    {% from "internal-service-header/macro.njk" import dwpHeader %}
+    {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+    {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{% block header %}
+
+
+
+{{
+        dwpHeader({
+            serviceName: "Manage your compensation recovery claims",
+            serviceHref: '#',
+             action: "Sign in",
+            actionHref: "#",
+            container: true,
+            navigation: {
+              items: [
+              
+           
+              ]
+          }  
+        })
+}}
+
+
+{% endblock %}
+
+{% block footer %}
+
+<footer class="dwp-footer">
+  <div class="govuk-width-container">
+    <h2 class="govuk-visually-hidden">About this website</h2>
+    <ul class="dwp-footer__inline-list">
+      <li class="dwp-footer__inline-list-item">
+        <a class="dwp-footer__link" href="">Accessibility statement</a>
+      </li>
+      <li class="dwp-footer__inline-list-item">
+        <a class="dwp-footer__link" href="">Privacy</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+
+{% endblock %}
