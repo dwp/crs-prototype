@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+ {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+        <p class="govuk-body">Try again later.</p>
+         <p class="govuk-body">
+         If you urgently need to make changes to your claim, <a href="mailto:cru.digital@dwp.gov.uk">contact the Compensation Recovery Unit</a>.
+        </p>
+     
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
+
