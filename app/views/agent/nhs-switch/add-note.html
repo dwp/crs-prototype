@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+ {% from "govuk/components/radios/macro.njk" import govukRadios %}
+ {% from "govuk/components/table/macro.njk" import govukTable %}
+ {% from "govuk/components/panel/macro.njk" import govukPanel %}
+ {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+ {% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper" id="main-content">
+
+    <div class="govuk-grid-row"> 
+        
+    <form class="form" action="view-claim-note-added" method="post">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="with-hint">
+            Add note
+          </label>
+        </h1>
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You have 120 characters remaining
+        </div>
+      </div>
+
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+          {{ govukButton({
+            text: "Add note"
+          }) }}
+
+          <p class="govuk-body"><a class="govuk-link" href="#">Cancel</a></p>
+        </div>
+
+
+
+     </div>
+
+
+    </form>
+    </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
+
