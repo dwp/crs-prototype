@@ -1,0 +1,42 @@
+{% extends "layouts/agent.html" %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Prototype index",
+      href: "../index"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "includes/banner.njk" %}
+    <form class="form" action="/persona" method="post">
+
+      {{ govukRadios({
+        name: "persona",
+        fieldset: {
+          legend: {
+            text: "CRS V2: select a user persona",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+
+        {
+            value: "task",
+            text: "Agent completing a task"
+          }
+        ]
+      }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

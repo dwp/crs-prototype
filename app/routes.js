@@ -137,3 +137,23 @@ router.post('/agent/ni-reporting/call-task-v2/ni-claim-options-answer1', functio
     }
 
 });
+
+//NB Split the routes below into a V2 file ASAP
+
+//Set conditions to simulate
+router.post('/conditions', function (req, res) {
+    res.redirect('/v2/agent/task/cru-4-amendment')
+});
+
+//CRU 4 amendement
+router.post('/cru-4-answer', function (req, res) {
+
+  var amendmentOptions = req.session.data['amendmentOptions']
+  if (amendmentOptions == "ignore"){
+    res.redirect('/v2/agent/task/cru-4-ignore-confirm')
+  } else if (amendmentOptions == "detailsUpdated"){
+    res.redirect('/v2/agent/task/cru-4-updated-confirm')
+  } else if (amendmentOptions == "ignoreLegacy"){
+    res.redirect('/v2/agent/task/cru-4-legacy')
+  }
+})

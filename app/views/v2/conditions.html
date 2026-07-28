@@ -1,0 +1,61 @@
+{% extends "layouts/agent.html" %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Prototype index",
+      href: "../index"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "includes/banner.njk" %}
+    <form class="form" action="/conditions" method="post">
+
+      {{ govukRadios({
+        name: "conditions",
+        fieldset: {
+          legend: {
+            text: "CRS V2: select conditions to simulate",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+
+        {
+            value: "default",
+            text: "Don't add any extra conditions"
+        },
+        {
+          divider: "or"
+        },
+        {
+            value: "errorCru4Blank",
+            text: "CRU 4 amendment task: reason left blank"
+        },    
+        {
+            value: "errorCru4IgnoreBlank",
+            text: "CRU 4 amendment task: 'ignore' reason not selected"
+        },
+        {
+            value: "errorCru4OtherCharLimit",
+            text: "CRU 4 amendment task: 'other' reason character limit exceeded"
+        }, 
+        {
+            value: "errorCru4OtherBlank",
+            text: "CRU 4 amendment task: 'other' reason left blank"
+        }        
+        ]
+      }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+          titleText: "Task completed"
+        }) }}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-4 govuk-!-margin-top-8">
+        What you can do next
+        </h2>
+        <p><a href="#">View claim</a></p>
+        <p><a href="#">Back to tasks</a></p>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}
