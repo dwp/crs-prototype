@@ -140,10 +140,42 @@ router.post('/agent/ni-reporting/call-task-v2/ni-claim-options-answer1', functio
 
 //NB Split the routes below into a V2 file ASAP
 
+//Set scenario to simulate
+router.post('/scenario', function (req, res) {
+  res.redirect('/v2/conditions')
+});
+
 //Set conditions to simulate
 router.post('/conditions', function (req, res) {
+   var scenario = req.session.data['scenario']
+  if (scenario == "cru4"){
     res.redirect('/v2/agent/task/cru-4-amendment')
-});
+  } else if (scenario == "claim"){
+    res.redirect('/v2/claim-state')
+  }   
+})
+
+//Set claim state
+router.post('/claim-state', function (req, res) {
+   var conditions = req.session.data['conditions']
+  if (conditions == "contactDetailsUpdated"){
+    res.redirect('/v2/agent/claim#past-week')
+  } else {
+    res.redirect('/v2/agent/claim')
+  }   
+})
+
+//Note selection routing
+router.post('/note-type', function (req, res) {
+  var noteType = req.session.data['noteType']
+  if (noteType == "agentNote"){
+    res.redirect('/v2/agent/notes/note')
+  } else if (noteType == "nhsNote"){
+    res.redirect('/v2/agent/notes/nhs-note')
+  }
+})
+
+
 
 //CRU 4 amendement
 router.post('/cru-4-answer', function (req, res) {

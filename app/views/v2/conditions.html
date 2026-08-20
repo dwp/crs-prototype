@@ -16,42 +16,112 @@
     {% include "includes/banner.njk" %}
     <form class="form" action="/conditions" method="post">
 
-      {{ govukRadios({
-        name: "conditions",
-        fieldset: {
-          legend: {
-            text: "CRS V2: select conditions to simulate",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
+      <!--CRU4 conditions-->
+      {% if data.scenario == "cru4" %}
+        {{ govukRadios({
+          name: "conditions",
+          fieldset: {
+            legend: {
+              text: "CRS V2: select conditions to simulate",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+                value: "default",
+                text: "Don't add any extra conditions"
+            },
+            {
+              divider: "or"
+            },
+            {
+                value: "errorCru4Blank",
+                text: "CRU 4 amendment task: reason left blank"
+            },
+            {
+              divider: "or"
+            },  
+            {
+                value: "errorCru4IgnoreBlank",
+                text: "CRU 4 amendment task: 'ignore' reason not selected"
+            },
+            {
+                value: "errorCru4OtherCharLimit",
+                text: "CRU 4 amendment task: 'other' reason character limit exceeded"
+            }, 
+            {
+                value: "errorCru4OtherBlank",
+                text: "CRU 4 amendment task: 'other' reason left blank"
+            },
+            {
+              divider: "or"
+            },
+            {
+                value: "errorLegacyConfirmBlank",
+                text: "CRU 4 amendment task: legacy task confirmation checkbox left blank"
+            },
+            {
+                value: "errorUpdatedConfirmBlank",
+                text: "CRU 4 amendment task: update confirmation checkbox left blank"
+            },
+            {
+                value: "errorLegacyConfirmBlank",
+                text: "CRU 4 amendment task: legacy task confirmation checkbox left blank"
+            },
+            {
+                value: "errorUpdatedConfirmBlank",
+                text: "CRU 4 amendment task: update confirmation checkbox left blank"
+            }
+          ]
+        }) }}
+      {% endif %}
+      <!-- End CRU4 conditions -->
+      
+      <!-- Claim conditions-->
+      {% if data.scenario == "claim" %}
+        {{ govukRadios({
+          name: "conditions",
+          fieldset: {
+            legend: {
+              text: "CRS V2: select conditions to simulate",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+                value: "default",
+                text: "Don't add any extra conditions"
+            },
+            {
+              divider: "or"
+            },
+            {
+                value: "claimDetailsUpdated",
+                text: "Claim details updated"
+            },
+            {
+                value: "contactDetailsUpdated",
+                text: "Contact details updated"
+            },
+            {
+                value: "claimReminderSet",
+                text: "Claim reminder set"
+            },
+            {
+                value: "letter",
+                text: "The letter is being processed for sending"
+            },
+            {
+                value: "legacyTaskCreated",
+                text: "Legacy task created"
+            }  
+          ]
+        }) }}
+      {% endif %}
+      <!-- End claim conditions -->
 
-        {
-            value: "default",
-            text: "Don't add any extra conditions"
-        },
-        {
-          divider: "or"
-        },
-        {
-            value: "errorCru4Blank",
-            text: "CRU 4 amendment task: reason left blank"
-        },    
-        {
-            value: "errorCru4IgnoreBlank",
-            text: "CRU 4 amendment task: 'ignore' reason not selected"
-        },
-        {
-            value: "errorCru4OtherCharLimit",
-            text: "CRU 4 amendment task: 'other' reason character limit exceeded"
-        }, 
-        {
-            value: "errorCru4OtherBlank",
-            text: "CRU 4 amendment task: 'other' reason left blank"
-        }        
-        ]
-      }) }}
       {{ govukButton({
         text: "Continue"
       }) }}

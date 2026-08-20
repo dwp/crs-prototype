@@ -1,0 +1,647 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Change me" %}
+
+{% block content %}
+
+<!-- Start banner -->
+{% if data.conditions == "claimDetailsUpdated" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Claim details updated
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<!-- Start banner -->
+{% if data.conditions == "contactDetailsUpdated" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Contact details updated
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<!-- Start banner -->
+{% if data.conditions == "claimReminderSet" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Claim reminder set
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<!-- Start banner -->
+{% if data.conditions == "letter" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            The letter is being processed for sending
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<!-- Start banner -->
+{% if data.conditions == "legacyTaskCreated" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Legacy task created
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   {% include "includes/tag.njk" %}
+
+   {% set claimPath = "/v2/agent/claim" %}
+    {{ 
+        dwpHorizontalNavigation({
+                selectedItem: "/v2/agent/claim/index.html",
+                containerClasses: "govuk-!-margin-top-8  govuk-!-margin-bottom-8",
+                items: [
+                    {
+                    text: "Overview",
+                    href: claimPath + "/index.html",
+                    id: "s-item-1"
+                    },
+                    {
+                    text: "Notes",
+                    href: claimPath + "/notes.html",
+                    id: "s-item-2"
+                    },
+                    {
+                    text: "History",
+                    href: claimPath + "/history.html",
+                    id: "s-item-3"
+                    },
+                    {
+                    text: "Certificates",
+                    href: claimPath + "/certificates.html",
+                    id: "s-item-4"
+                    }
+                ]
+            })
+    }}
+
+    {% set pastDayHtml %}
+    <h2 class="govuk-heading-m">Claim details</h2>
+    {{ govukSummaryList({
+    rows: [
+        {
+        key: { text: "Liability type" },
+        value: { text: "Motor" }
+        },
+        {
+        key: { text: "Date registered" },
+        value: { text: "15 January 2024" }
+        },
+        {
+        key: { text: "Benefit interest" },
+        value: { text: "None" }
+        }
+    ]
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">The injured person</h2>
+
+    <!-- Status: incomplete -->
+     {% if data.claimState == "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: { text: "Name" },
+            value: { text: "Sarah Phillips" }
+            },
+            {
+            key: { text: "Date of birth" },
+            value: { text: "5 January 1978" }
+            },
+            {
+            key: { text: "National insurance number" },
+            value: { text: "AA 11 22 33 B" }
+            },
+            {
+            key: { text: "Injury date" },
+            value: { text: "8 January 2024" }
+            },
+            {
+            key: { text: "Address" },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+      <!-- End status: incomplete -->
+    
+     <!-- Status: CHANGE-->
+    {% if data.claimState != "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: { text: "Name" },
+            value: { text: "Sarah Phillips" },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+                }]
+            }
+            },
+            {
+            key: { text: "Date of birth" },
+            value: { text: "5 January 1978" },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+                }]
+            }
+            },
+            {
+            key: { text: "National insurance number" },
+            value: { text: "AA 11 22 33 B" },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "national insurance number"
+                }]
+            }
+            },
+            {
+            key: { text: "Injury date" },
+            value: { text: "8 January 2024" },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "injury date"
+                }]
+            }
+            },
+            {
+            key: { text: "Address" },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+                }]
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Injury details</h2>
+
+    {{ govukSummaryList({
+    rows: [
+        {
+        key: { text: "Whiplash" },
+        value: { text: "Yes" }
+        },
+        {
+        key: { text: "Other injuries" },
+        value: { text: "Yes" }
+        },
+        {
+        key: { text: "Injury types" },
+        value: {
+            html: "
+            Physical injury other than whiplash<br>
+            Psychological<br>
+            Neurological
+            "
+        }
+        },
+        {
+        key: { text: "Physical injury other than whiplash" },
+        value: {
+            html: "
+            Head injury<br>
+            Soft tissue injury
+            "
+        }
+        },
+        {
+        key: { text: "Psychological injuries" },
+        value: { text: "Travel anxiety" }
+        },
+        {
+        key: { text: "Neurological injuries" },
+        value: { text: "Nausea" }
+        }
+    ]
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">Hospital treatment details</h2>
+     <!-- Status: incomplete -->
+    {% if data.claimState == "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: { text: "Hospital treatment" },
+            value: { text: "No" }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: incomplete -->
+     <!-- Status: CHANGE-->
+    {% if data.claimState != "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: { text: "Hospital treatment" },
+            value: { text: "No" },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "hospital treatment"
+                }]
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: CHANGE -->
+    {% endset -%}
+
+    {% set pastWeekHtml %}
+    <h2 class="govuk-heading-m">Contact details</h2>
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">
+    Injured person's representative
+    </h3>
+    <!-- Status: incomplete -->
+    {% if data.claimState == "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Company name"
+            },
+            value: {
+                text: "Solicitors & Co"
+            }
+            },
+            {
+            key: {
+                text: "Email address"
+            },
+            value: {
+                text: "jane.doe@solicitorsandco.com"
+            }
+            },
+            {
+            key: {
+                text: "Reference number"
+            },
+            value: {
+                text: "786DA"
+            }
+            },
+            {
+            key: {
+                text: "Telephone"
+            },
+            value: {
+                text: "07123456789"
+            }
+            },
+            {
+            key: {
+                text: "Address"
+            },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: incomplete -->
+
+    <!-- Status: CHANGE -->
+    {% if data.claimState != "incomplete" %}
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Company name"
+            },
+            value: {
+                text: "Solicitors & Co"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "company name"
+                }]
+            }
+            },
+            {
+            key: {
+                text: "Email address"
+            },
+            value: {
+                text: "jane.doe@solicitorsandco.com"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "email address"
+                }]
+            }
+            },
+            {
+            key: {
+                text: "Reference number"
+            },
+            value: {
+                text: "786DA"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "reference number"
+                }]
+            }
+            },
+            {
+            key: {
+                text: "Telephone"
+            },
+            value: {
+                text: "07123456789"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "telephone number"
+                }]
+            }
+            },
+            {
+            key: {
+                text: "Address"
+            },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+                }]
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: CHANGE -->
+
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">
+    Compensator
+    </h3>
+    <!-- Status: incomplete -->
+    {% if data.claimState == "incomplete" %}
+
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Aviva"
+            }
+            },
+            {
+            key: {
+                text: "Address"
+            },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+            },
+            {
+            key: {
+                text: "Email address"
+            },
+            value: {
+                text: "jane.doe@solicitorsandco.com"
+            }
+            },
+            {
+            key: {
+                text: "Telephone"
+            },
+            value: {
+                text: "07123456789"
+            }
+            },
+            {
+            key: {
+                text: "Reference number"
+            },
+            value: {
+                text: "786DA"
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: incomplete -->
+
+    <!-- Status: CHANGE -->
+    {% if data.claimState != "incomplete" %}
+
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Name"
+            },
+            value: {
+                text: "Aviva"
+            }
+            },
+            {
+            key: {
+                text: "Address"
+            },
+            value: {
+                html: "72 Guild Street<br>London<br>SE23 6FH"
+            }
+            },
+            {
+            key: {
+                text: "Email address"
+            },
+            value: {
+                text: "jane.doe@solicitorsandco.com"
+            }
+            },
+            {
+            key: {
+                text: "Telephone"
+            },
+            value: {
+                text: "07123456789"
+            }
+            },
+            {
+            key: {
+                text: "Reference number"
+            },
+            value: {
+                text: "786DA"
+            },
+            actions: {
+                items: [{
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "reference number"
+                }]
+            }
+            }
+        ]
+        }) }}
+    {% endif %}
+    <!-- End status: CHANGE -->
+    {% endset -%}
+
+    {% set pastMonthHtml %}
+  
+    {% endset -%}
+
+    {% set pastYearHtml %}
+    <h2 class="govuk-heading-l">Past year</h2>
+    {{ govukTable({
+    head: [
+        {
+        text: "Case manager"
+        },
+        {
+        text: "Cases opened"
+        },
+        {
+        text: "Cases closed"
+        }
+    ],
+    rows: [
+        [
+        {
+            text: "David Francis"
+        },
+        {
+            text: "1380"
+        },
+        {
+            text: "1472"
+        }
+        ],
+        [
+        {
+            text: "Paul Farmer"
+        },
+        {
+            text: "1129"
+        },
+        {
+            text: "1083"
+        }
+        ],
+        [
+        {
+            text: "Rita Patel"
+        },
+        {
+            text: "1539"
+        },
+        {
+            text: "1265"
+        }
+        ]
+    ]
+    }) }}
+    {% endset -%}
+
+    {{ govukTabs({
+    items: [
+        {
+        label: "Claim details",
+        id: "past-day",
+        panel: {
+            html: pastDayHtml
+        }
+        },
+        {
+        label: "Contact details",
+        id: "past-week",
+        panel: {
+            html: pastWeekHtml
+        }
+        }
+    ]
+    }) }}
+      
+
+
+  </div>
+  <div class="gov-grid-column-one-third">
+    {% include "includes/actions.njk" %}
+  </div>
+</div>
+
+{% endblock %}
