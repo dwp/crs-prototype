@@ -20,6 +20,22 @@
 <!-- End banner-->
 
 <!-- Start banner -->
+{% if data.conditions == "claimSettled" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Settlement details added
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<!-- Start banner -->
 {% if data.conditions == "contactDetailsUpdated" %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -139,8 +155,8 @@
 
     <h2 class="govuk-heading-m govuk-!-margin-top-9">The injured person</h2>
 
-    <!-- Status: incomplete -->
-     {% if data.claimState == "incomplete" %}
+    <!-- Status: claim settled or legacy -->
+     {% if data.claimState == "legacy" or data.claimState == "settled" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -171,7 +187,7 @@
       <!-- End status: incomplete -->
     
      <!-- Status: CHANGE-->
-    {% if data.claimState != "incomplete" %}
+    {% if data.claimState == "incomplete"  or data.claimState == "issued" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -279,7 +295,7 @@
 
     <h2 class="govuk-heading-m govuk-!-margin-top-9">Hospital treatment details</h2>
      <!-- Status: incomplete -->
-    {% if data.claimState == "incomplete" %}
+     {% if data.claimState == "legacy" or data.claimState == "settled" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -291,7 +307,7 @@
     {% endif %}
     <!-- End status: incomplete -->
      <!-- Status: CHANGE-->
-    {% if data.claimState != "incomplete" %}
+    {% if data.claimState == "incomplete" or data.claimState == "issued" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -317,7 +333,7 @@
     Injured person's representative
     </h3>
     <!-- Status: incomplete -->
-    {% if data.claimState == "incomplete" %}
+   {% if data.claimState == "legacy" or data.claimState == "settled" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -366,7 +382,7 @@
     <!-- End status: incomplete -->
 
     <!-- Status: CHANGE -->
-    {% if data.claimState != "incomplete" %}
+    {% if data.claimState == "incomplete" or data.claimState == "issued" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -454,7 +470,7 @@
     Compensator
     </h3>
     <!-- Status: incomplete -->
-    {% if data.claimState == "incomplete" %}
+     {% if data.claimState == "legacy" or data.claimState == "settled" %}
 
         {{ govukSummaryList({
         rows: [
@@ -504,7 +520,7 @@
     <!-- End status: incomplete -->
 
     <!-- Status: CHANGE -->
-    {% if data.claimState != "incomplete" %}
+    {% if data.claimState == "incomplete" or data.claimState == "issued" %}
 
         {{ govukSummaryList({
         rows: [
