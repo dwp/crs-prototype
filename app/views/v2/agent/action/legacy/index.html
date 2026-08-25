@@ -1,0 +1,33 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../claim/" method="post">
+
+        <h1 class="govuk-heading-xl">
+        Are you sure you want to create a legacy task?
+        </h1>
+
+        <p class="govuk-body">
+        This action will create a task to send this claim to the legacy system.
+        </p>
+
+        <p class="govuk-body">
+        Once moved, you will only be able to update details on that system.
+        </p>
+
+        {{ govukButton({
+        text: "Confirm"
+        }) }}
+
+    </form>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}
