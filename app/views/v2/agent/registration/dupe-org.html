@@ -1,0 +1,35 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+    <h1 class="govuk-heading-l">[org-name] may already have an account</h1>
+    <p class="govuk-body">The name you entered has a close match to an organisation registered to CRS.</p>
+    <p class="govuk-body">The organisations already registered are:</p>
+    <div>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Smith & Direct Claim Ltd insurers Limited</th>
+            <td scope="col" class="govuk-table__cell">122 London Road<br>Farrington<br>SW9 3RR</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Smith & Direct Claim Ltd insurers Partners</th>
+           <td scope="col" class="govuk-table__cell">124 London Road<br>Farrington<br>SW9 3RR</th>
+          </tr>
+        </tbody>
+      </table>
+      <p class="govuk-body">Here is probably where we'll tell them what to do next</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

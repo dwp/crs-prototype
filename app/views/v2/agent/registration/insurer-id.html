@@ -1,0 +1,27 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="event-name">
+          What is the insurerID?
+        </label>
+      </h1>
+      <div id="event-name-hint" class="govuk-hint">
+        The insurerID is in ... format
+      </div>
+      <input class="govuk-input" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+  </div>
+</div>
+{% endblock %}
