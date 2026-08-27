@@ -207,7 +207,7 @@ router.post('/v2/agent/registration/org-type', function (req, res) {
     res.redirect('/v2/agent/registration/delegate-id')
   } else if (additionalinfo.includes("email")){
     res.redirect('/v2/agent/registration/org-email')
-  } else {
+  } else if (additionalinfo == "none"){
     res.redirect('/v2/agent/registration/check-your-answers')
   }
 })
@@ -219,5 +219,25 @@ router.post('/v2/agent/registration/delegate-id', function (req, res) {
     res.redirect('/v2/agent/registration/org-email')
   } else {
     res.redirect('/v2/agent/registration/check-your-answers')
+  }
+})
+
+//duplicate org confirmed routing
+router.post('/v2/agent/registration/insurer-id', function (req, res) {
+  const insurerid = req.session.data['insurerid']
+  if (insurerid.includes('12345B')) {
+    res.redirect('/v2/agent/registration/dupe-org-confirmed')
+  } else {
+    res.redirect('/v2/agent/registration/org-name')
+  }
+})
+
+//possible duplicate org routing
+router.post('/v2/agent/registration/org-name', function (req, res) {
+  const orgname = req.session.data['orgname']
+  if (orgname.includes ('Questionable insurance co')) {
+    res.redirect('/v2/agent/registration/dupe-org')
+  } else {
+    res.redirect('/v2/agent/registration/org-type')
   }
 })

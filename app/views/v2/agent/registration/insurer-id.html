@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<form class="post" action="/v2/agent/registration/org-name">
+<form method="post">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
       <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="event-name">
-          What is {{ data['orgname'] }}'s insurerID?
+          What is the organisations insurerID?
         </label>
       </h1>
       <div id="event-name-hint" class="govuk-hint">
@@ -27,4 +27,5 @@
 </div>
 </form>
 {{ data | dump }}
+<p class="govuk-body">Enter 12345B for confirmed dupe journey</p>
 {% endblock %}  
