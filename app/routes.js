@@ -189,3 +189,35 @@ router.post('/cru-4-answer', function (req, res) {
     res.redirect('/v2/agent/task/cru-4-legacy')
   }
 })
+
+//Org registration start outcome
+router.post('/v2/agent/registration/start', function (req, res) {
+  const additionalinfo = req.session.data['additionalinfo']
+  if (additionalinfo.includes('InsurerID')) {
+    res.redirect('/v2/agent/registration/insurer-id')
+  } else {
+    res.redirect('/v2/agent/registration/org-name')
+  }
+})
+
+//Org type next step navigation
+router.post('/v2/agent/registration/org-type', function (req, res) {
+  var additionalinfo = req.session.data['additionalinfo']
+   if (additionalinfo.includes("delegateID")){
+    res.redirect('/v2/agent/registration/delegate-id')
+  } else if (additionalinfo.includes("email")){
+    res.redirect('/v2/agent/registration/org-email')
+  } else {
+    res.redirect('/v2/agent/registration/check-your-answers')
+  }
+})
+
+//Org delegateid navigation
+router.post('/v2/agent/registration/delegate-id', function (req, res) {
+  const additionalinfo = req.session.data['additionalinfo']
+  if (additionalinfo.includes('email')) {
+    res.redirect('/v2/agent/registration/org-email')
+  } else {
+    res.redirect('/v2/agent/registration/check-your-answers')
+  }
+})

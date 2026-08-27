@@ -6,54 +6,59 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <div>
-      <h1 class="govuk-heading-xl">Registering an organsation</h1>
-      <p class="govuk-body">Organisation name and type are mandatory information.</p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div>
+            <h1 class="govuk-heading-xl">Registering an organsation</h1>
+            <p class="govuk-body">Organisation name and type are mandatory information.</p>
+          </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <form method="post">
+            <h2 class="govuk-fieldset__heading">
+              What additional information do you want to add to the organisation?
+            </h2>
+          </legend>
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="insurer-id" name="additionalinfo" type="checkbox" value="InsurerID">
+              <label class="govuk-label govuk-checkboxes__label" for="insurer-id">
+                InsurerID
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="delegate-ID" name="additionalinfo" type="checkbox" value="delegateID">
+              <label class="govuk-label govuk-checkboxes__label" for="delegate-ID">
+                DelegateID
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="org-email" name="additionalinfo" type="checkbox" value="email">
+              <label class="govuk-label govuk-checkboxes__label" for="org-email">
+                A department email address
+              </label>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="none" name="additionalinfo" type="checkbox" value="none" data-behaviour="none">
+              <label class="govuk-label govuk-checkboxes__label" for="none">
+                None of the above
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+                Continue
+              </button>
     </div>
-   <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h2 class="govuk-fieldset__heading">
-        What additional information do you want to add to the organisation?
-      </h2>
-    </legend>
-    <div id="waste-hint" class="govuk-hint">
-      Select all that apply
-    </div>
-    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-        <label class="govuk-label govuk-checkboxes__label" for="waste">
-          InsurerID
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-        <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-          DelegateID
-        </label>
-      </div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-        <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-          A department email address
-        </label>
-      </div>
-      <div class="govuk-checkboxes__divider">or</div>
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="none" data-behaviour="exclusive">
-        <label class="govuk-label govuk-checkboxes__label" for="countries-5">
-          None of the above
-        </label>
-      </div>
-    </div>
-    </fieldset>
   </div>
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
-  </div>
-</div>
+</form>
+<!--REMOVE DATA DUMP PRIOR TO UR-->
+{{ data | dump }}
 {% endblock %}

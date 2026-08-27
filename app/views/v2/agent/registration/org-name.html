@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<form class="post" action="/v2/agent/registration/org-type">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-form-group">
@@ -14,11 +15,13 @@
           What is the organisations name?
         </label>
       </h1>
-      <input class="govuk-input" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+      <input class="govuk-input" id="orgname" name="orgname" type="text" aria-describedby="organisation-name">
     </div>
     <button type="submit" class="govuk-button" data-module="govuk-button">
       Continue
     </button>
   </div>
 </div>
+</form>
+{{ data | dump }}
 {% endblock %}

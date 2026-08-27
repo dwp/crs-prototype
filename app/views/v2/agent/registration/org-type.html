@@ -6,31 +6,31 @@
 {% endblock %}
 
 {% block content %}
+<form method="post">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div>
       <div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
-          <form action="/form-handler" method="post" novalidate>
+          
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                   <h1 class="govuk-fieldset__heading">
-                    What type of organisation is [org-name]?
+                    What type of organisation is {{ data['orgname'] }}?
                   </h1>
                 </legend>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                    <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                    <input class="govuk-radios__input" id="orgtype" name="orgtype" type="radio" value="Insurer or compensator">
+                    <label class="govuk-label govuk-radios__label" for="orgtype">
                       Insurer or compensator
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                    <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                    <input class="govuk-radios__input" id="orgtype" name="orgtype" type="radio" value="Third party administrator">
+                    <label class="govuk-label govuk-radios__label" for="orgtype">
                       Third party administrator
                     </label>
                   </div>
@@ -47,5 +47,8 @@
   </div>
   
   </div>
+  
 </div>
+</form>
+{{ data | dump }}
 {% endblock %}

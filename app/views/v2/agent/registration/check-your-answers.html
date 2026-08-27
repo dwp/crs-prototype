@@ -14,45 +14,52 @@
         <h1 class="govuk-heading-l">Check your answers before creating this organisation</h1>
         <h2 class="govuk-heading-m">Organisation details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               InsurerID
             </dt>
             <dd class="govuk-summary-list__value">
-              [insurer-id]
+              {{ data['insurerid'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
+     
+
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Organisation name
             </dt>
             <dd class="govuk-summary-list__value">
-              [org-name]
+              {{ data['orgname'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Organisation type
             </dt>
             <dd class="govuk-summary-list__value">
-              [org-type]
+              {{ data['orgtype'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
             </dd>
           </div>
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               DelegateID
             </dt>
             <dd class="govuk-summary-list__value">
-              [delegate-id]
+              {{ data['delegateid'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
@@ -63,7 +70,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">[org-email]</p>
+              <p class="govuk-body">{{ data['orgemail'] }}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -74,7 +81,7 @@
         
         <h2 class="govuk-heading-m">Now send your application</h2>
         <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-        <form action="/form-handler" method="post" novalidate>
+        <form action="/v2/agent/registration/success" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Accept and send
@@ -84,4 +91,5 @@
     </div>
   </main>
 </div>
+{{ data | dump }}
 {% endblock %}
