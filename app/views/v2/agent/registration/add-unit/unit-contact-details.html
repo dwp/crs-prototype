@@ -1,0 +1,40 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<form action="/v2/agent/registration/add-unit/address-start" method="post" novalidate>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+     <span class="govuk-caption-xl">{{ data['orgname'] }}</span>
+<h1 class="govuk-heading-xl">Adding branch details</h1>
+  <p class="govuk-body">Address and email address are required.</p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email">
+            Email address
+          </label>
+          <input class="govuk-input" id="email" name="unit-email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+          
+        </div>
+    </div>
+    <div class="govuk-form-group">
+  <label class="govuk-label" for="email">
+    Phone number (optional)
+  </label>
+  
+  <input class="govuk-input govuk-input--width-10" id="phone" name="unit-phone" type="phone-number" spellcheck="false" aria-describedby="phone-hint" autocomplete="phone">
+</div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+  </div>
+</div>
+</form>
+
+{{ data | dump }}
+{% endblock %}

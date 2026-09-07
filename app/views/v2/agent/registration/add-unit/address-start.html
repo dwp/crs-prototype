@@ -1,0 +1,51 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<form action="/v2/agent/registration/add-unit/pick-address" method="post" novalidate>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+      <span class="govuk-caption-xl">{{ data['orgname'] }}</span>
+  <h1 class="govuk-heading-xl">Find the branch's address</h1>
+   
+<div class="govuk-width-container">
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="postcode">
+      Postcode
+    </label>
+    <div id="postcode-hint" class="govuk-hint">
+      For example, AA3 1AB.
+    </div>
+    <input
+      class="govuk-input govuk-!-width-two-thirds" id="postcode" name="postcode" type="text" aria-describedby="postcode-hint">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="searchString">
+      Building number or name
+    </label>
+    <div id="searchString-hint" class="govuk-hint">
+      For example, 15 or Prospect Cottage.
+    </div>
+    <input
+      class="govuk-input govuk-!-width-two-thirds" id="searchString" name="searchString" type="text" aria-describedby="searchString-hint">
+  </div>
+  <div>
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Find address
+  </button>
+  <p class="govuk-body govuk-!-margin-bottom-0"><a href="#" class="govuk-link">Enter address manually</a></p>
+</div>
+
+      
+    </div>
+  </div>
+</form>
+
+{{ data | dump }}
+{% endblock %}

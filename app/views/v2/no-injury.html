@@ -1,0 +1,23 @@
+{% extends "layouts/agent.html" %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Prototype index",
+      href: "../index"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "includes/banner.njk" %}
+    <form class="form" action="scenario" method="post">
+
+     
+  </div>
+</div>
+<!-- Delete -->
+{% endblock %}

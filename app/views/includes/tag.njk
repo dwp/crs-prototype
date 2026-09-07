@@ -1,0 +1,32 @@
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">
+      Sarah Phillips
+    </h1>
+    <p class="govuk-body">PAB704</p>
+
+{% if data.claimState == "incomplete" %}
+    {{ govukTag({
+    text: "Incomplete",
+    classes: "govuk-tag--yellow"
+    }) }}
+{% endif %}
+
+{% if data.claimState == "legacy" %}
+    {{ govukTag({
+    text: "Legacy",
+    classes: "govuk-tag--green"
+    }) }}
+{% endif %}
+
+{% if data.claimState == "settled" %}
+    {{ govukTag({
+    text: "Claim settled",
+    classes: "govuk-tag--green"
+    }) }}
+{% endif %}
+
+{% if data.claimState == "issued" %}
+    {{ govukTag({
+    text: "Certificate issued",
+    classes: "govuk-tag--green"
+    }) }}
+{% endif %}

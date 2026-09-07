@@ -1,0 +1,242 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Start error banner-->
+     {% if data.conditions == "errorCru4IgnoreBlank" %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+            {
+                text: "Select a reason for ignoring the changes",
+                href: "#"
+            }
+            ]
+        }) }}
+    {% endif %}
+
+    {% if data.conditions == "errorCru4OtherBlank" %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter a reason for ignoring the change",
+            href: "#"
+          }
+        ]
+      }) }}
+    {% endif %}
+
+    {% if data.conditions == "errorCru4OtherCharLimit" %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Your reason(s) must be 200 characters or less",
+            href: "#"
+          }
+        ]
+      }) }}
+    {% endif %}
+    <!-- End error banner-->
+    <form action="task-completed" method="post">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Why do you want to ignore the new claim details?
+        </h1>
+        <p>You must choose a reason for ignoring the new claim details.</p>
+
+        {% set otherReason %}
+        {{ govukInput({
+        id: "other-reason",
+        name: "otherReason",
+        classes: "govuk-!-width-three-thirds",
+        label: {
+            text: "Reason(s) for ignoring the change"
+        }
+        }) }}
+        {% endset -%}
+
+        <!-- Start default list -->
+        {% if data.conditions == "default" %}
+            {{ govukRadios({
+            name: "ignoreOptions",
+            items: [
+                {
+                value: "error",
+                text: "Amendment task raised in error"
+                },
+                {
+                value: "branchChange",
+                text: "Branch change only"
+                },
+                {
+                value: "formatDifference",
+                text: "Difference in format"
+                },
+                {
+                value: "spellingError",
+                text: "Minor spelling error"
+                },
+                {
+                value: "noImpact",
+                text: "New data does not impact the claim"
+                },
+                {
+                divider: "or"
+                },
+                {
+                value: "other",
+                text: "Other",
+                conditional: {
+                    html: otherReason
+                }
+                }
+            ]
+            }) }}
+        {% endif %}
+        <!-- End default list -->
+
+        <!-- Start error state 1: You must choose a reason for ignoring the changes -->
+        {% if data.conditions == "errorCru4IgnoreBlank" %}
+            {{ govukRadios({
+            name: "ignoreOptions",
+            items: [
+                {
+                value: "error",
+                text: "Amendment task raised in error"
+                },
+                {
+                value: "branchChange",
+                text: "Branch change only"
+                },
+                {
+                value: "formatDifference",
+                text: "Difference in format"
+                },
+                {
+                value: "spellingError",
+                text: "Minor spelling error"
+                },
+                {
+                value: "noImpact",
+                text: "New data does not impact the claim"
+                },
+                {
+                divider: "or"
+                },
+                {
+                value: "other",
+                text: "Other",
+                conditional: {
+                    html: otherReason
+                }
+                }
+            ],
+            errorMessage: {
+                text: "Select a reason for ignoring the changes"
+            }
+            }) }}
+        {% endif %}
+        <!-- End error state 1 -->
+
+        <!-- Start error state 2 -->
+        {% if data.conditions == "errorCru4OtherBlank" %}
+        {{ govukRadios({
+            name: "ignoreOptions",
+            items: [
+                {
+                value: "error",
+                text: "Amendment task raised in error"
+                },
+                {
+                value: "branchChange",
+                text: "Branch change only"
+                },
+                {
+                value: "formatDifference",
+                text: "Difference in format"
+                },
+                {
+                value: "spellingError",
+                text: "Minor spelling error"
+                },
+                {
+                value: "noImpact",
+                text: "New data does not impact the claim"
+                },
+                {
+                divider: "or"
+                },
+                {
+                value: "other",
+                text: "Other",
+                conditional: {
+                    html: otherReason
+                }
+                }
+            ],
+            errorMessage: {
+                text: "Enter a reason for ignoring the change"
+            }
+            }) }}
+        {% endif %}
+        <!-- End error state 2 -->
+
+        <!-- Start error state 3 -->
+        {% if data.conditions == "errorCru4OtherCharLimit" %}
+            {{ govukRadios({
+                name: "ignoreOptions",
+                items: [
+                    {
+                    value: "error",
+                    text: "Amendment task raised in error"
+                    },
+                    {
+                    value: "branchChange",
+                    text: "Branch change only"
+                    },
+                    {
+                    value: "formatDifference",
+                    text: "Difference in format"
+                    },
+                    {
+                    value: "spellingError",
+                    text: "Minor spelling error"
+                    },
+                    {
+                    value: "noImpact",
+                    text: "New data does not impact the claim"
+                    },
+                    {
+                    divider: "or"
+                    },
+                    {
+                    value: "other",
+                    text: "Other",
+                    conditional: {
+                        html: otherReason
+                    }
+                    }
+                ],
+                errorMessage: {
+                    text: "Reason(s) must be less than 200 characters"
+                }
+                }) }}
+        {% endif %}
+        <!-- End error state 3 -->
+
+
+        {{ govukButton({
+            text: "Save and complete"
+        }) }}
+    </form>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}

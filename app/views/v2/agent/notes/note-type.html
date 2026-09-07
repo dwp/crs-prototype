@@ -1,0 +1,40 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/note-type" method="post">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+        Which type of note do you want to add?
+        </h1>
+            {{ govukRadios({
+            name: "noteType",
+            items: [
+                {
+                value: "nhsNote",
+                text: "NHS note"
+                },
+                {
+                value: "agentNote",
+                text: "Agent note"
+                }
+            ]
+            }) }}
+        <!-- End default list -->
+
+       
+
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}

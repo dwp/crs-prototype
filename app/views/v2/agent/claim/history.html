@@ -1,0 +1,125 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Change me" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   {% include "includes/tag.njk" %}
+
+    {% set claimPath = "/v2/agent/claim" %}
+    {{ 
+        dwpHorizontalNavigation({
+                selectedItem: "/v2/agent/claim/history.html",
+                containerClasses: "govuk-!-margin-top-8  govuk-!-margin-bottom-8",
+                items: [
+                    {
+                    text: "Overview",
+                    href: claimPath + "/index.html",
+                    id: "s-item-1"
+                    },
+                    {
+                    text: "Notes",
+                    href: claimPath + "/notes.html",
+                    id: "s-item-2"
+                    },
+                    {
+                    text: "History",
+                    href: claimPath + "/history.html",
+                    id: "s-item-3"
+                    },
+                    {
+                    text: "Certificates",
+                    href: claimPath + "/certificates.html",
+                    id: "s-item-4"
+                    }
+                ]
+            })
+    }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-8">History</h2>
+    <!--<p>There is no history record for this claim.</p>-->
+        <!-- Start timeline -->
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+            
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading govuk-!-margin-bottom-3">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Change to claim details ignored</h2>
+              <p class="govuk-body govuk-!-margin-bottom-3">Minor spelling error</p>
+            <p class="govuk-body govuk-!-margin-bottom-3">CRS-123</p>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading govuk-!-margin-bottom-3">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Change to claim details ignored</h2>
+              <p class="govuk-body govuk-!-margin-bottom-3">Arbitrary free text up-to 120 characters goes here where no structured reason can be selected.</p>
+              <p class="govuk-body govuk-!-margin-bottom-3">CRS-456</p>
+              <span class="govuk-caption-m">14:59pm, 15 October 2025, Sam Smith</span>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+               Claim details updated</h2>
+              <p class="govuk-body govuk-!-margin-bottom-3 govuk-!-margin-top-3">CRS-789</p>
+              <span class="govuk-caption-m">14:59pm, 15 October 2025, Sam Smith</span>
+            </li>
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Legacy task created</h2>
+              <p class="govuk-body govuk-!-margin-bottom-3 govuk-!-margin-top-3">CRS-789</p>
+              <span class="govuk-caption-m">14:59pm, 15 October 2025, Sam Smith</span>
+            </li>
+            <!---
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Agent note added</h2>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                NHS note added</h2>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+          -->
+            <!--
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">
+                <strong class="govuk-tag govuk-tag--purple">
+                  Claim actions
+                </strong>
+                Claim registered</h2>
+              <span class="govuk-caption-m">13:25pm, 16 October 2025, Sam Smith</span>
+            </li>
+          -->
+          </ol>
+        </div>
+        <!-- End timeline -->
+  </div>
+  
+  <div class="gov-grid-column-one-third">
+    {% include "includes/actions.njk" %}
+  </div>
+</div>
+
+{% endblock %}

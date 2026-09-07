@@ -1,0 +1,99 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Change me" %}
+
+{% block content %}
+
+<!-- Start banner -->
+ {% if data.noteType %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Note added
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "includes/tag.njk" %}
+
+    {% set claimPath = "/v2/agent/claim" %}
+    {{ 
+        dwpHorizontalNavigation({
+                selectedItem: "/v2/agent/claim/notes.html",
+                containerClasses: "govuk-!-margin-top-8  govuk-!-margin-bottom-8",
+                items: [
+                    {
+                    text: "Overview",
+                    href: claimPath + "/index.html",
+                    id: "s-item-1"
+                    },
+                    {
+                    text: "Notes",
+                    href: claimPath + "/notes.html",
+                    id: "s-item-2"
+                    },
+                    {
+                    text: "History",
+                    href: claimPath + "/history.html",
+                    id: "s-item-3"
+                    },
+                    {
+                    text: "Certificates",
+                    href: claimPath + "/certificates.html",
+                    id: "s-item-4"
+                    }
+                ]
+            })
+    }}
+
+    <h2 class="govuk-heading-m">Notes</h2>
+    <!--<p>There are no notes for this claim.</p>-->
+    <p class="govuk-!-margin-bottom-8"><a href="../notes/note">Add a note</a></p>
+    <!--{{ govukButton({
+    text: "Add a note",
+    href: "../notes/note-type"
+    }) }}-->
+
+    {{
+            dwpTimeline({ 
+                items: [
+                
+                    {
+                        title:  "Agent note",
+                        byline:  "Jane Doe",
+                        description: {
+                            text: "Free text of note goes here, maximum 200 characters"
+                        },
+                        date:  "19 April 2024 at 10:58am"
+                    }
+            ]
+            })
+    }}
+
+    <!--
+    ,
+                    {
+                        title:  "NHS note",
+                        byline:  "Jane Doe",
+                        description: {
+                            text: "DOHWNT"
+                        },
+                        date:  "19 April 2024 at 10:58am"
+                    }
+    -->
+
+  </div>
+  <div class="gov-grid-column-one-third">
+    {% include "includes/actions.njk" %}
+  </div>
+</div>
+
+{% endblock %}

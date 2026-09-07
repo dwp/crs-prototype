@@ -1,0 +1,44 @@
+{% extends "layouts/agent.html" %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Prototype index",
+      href: "../index"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "includes/banner.njk" %}
+    <form class="form" action="/scenario" method="post">
+
+      {{ govukRadios({
+        name: "scenario",
+        fieldset: {
+          legend: {
+            text: "CRS V2: select a scenario to simulate",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+            value: "cru4",
+            text: "Agent completing CRU 4 amendment task"
+          },        {
+            value: "claim",
+            text: "Agent interacting with claim record"
+          }
+        ]
+      }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<form method="post">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="event-name">
+          What is the organisations name?
+        </label>
+      </h1>
+      <input class="govuk-input" id="orgname" name="orgname" type="text" aria-describedby="organisation-name">
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+  </div>
+</div>
+</form>
+<!--
+{{ data | dump }}
+-->
+<p class="govuk-body">Enter 'Questionable insurance co' for possible duplicate journey</p>
+{% endblock %}

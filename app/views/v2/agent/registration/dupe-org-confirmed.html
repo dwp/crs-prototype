@@ -1,0 +1,17 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div>
+    <h1 class="govuk-heading-l">InsurerID {{ data['insurerid'] }} are already registered on CRS</h1>
+    <p class="govuk-body">Organisations cannot have more than one registration on CRS with the same InsurerID.</p>
+  <p class="govuk-body"><a href="#">View organisation</a></p>
+  </div>
+</div>
+{% endblock %}
