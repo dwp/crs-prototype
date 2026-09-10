@@ -200,13 +200,19 @@ router.post('/v2/agent/registration/start', function (req, res) {
   }
 })
 
-//Org type next step navigation
-router.post('/v2/agent/registration/org-type', function (req, res) {
+router.post('/v2/agent/registration/org-type', (req, res) => {
+2
+res.redirect('/v2/agent/registration/org-email')
+3
+})
+
+//Org type next step navigation (REPLACED TO EMAIL)
+router.post('/v2/agent/registration/org-email', function (req, res) {
   var additionalinfo = req.session.data['additionalinfo']
    if (additionalinfo.includes("delegateID")){
     res.redirect('/v2/agent/registration/delegate-id')
-  } else if (additionalinfo.includes("email")){
-    res.redirect('/v2/agent/registration/org-email')
+  } else if (additionalinfo.includes("phone")){
+    res.redirect('/v2/agent/registration/org-phone')
   } else if (additionalinfo == "none"){
     res.redirect('/v2/agent/registration/check-your-answers')
   }
@@ -215,8 +221,8 @@ router.post('/v2/agent/registration/org-type', function (req, res) {
 //Org delegateid navigation
 router.post('/v2/agent/registration/delegate-id', function (req, res) {
   const additionalinfo = req.session.data['additionalinfo']
-  if (additionalinfo.includes('email')) {
-    res.redirect('/v2/agent/registration/org-email')
+  if (additionalinfo.includes('phone')) {
+    res.redirect('/v2/agent/registration/org-phone')
   } else {
     res.redirect('/v2/agent/registration/check-your-answers')
   }

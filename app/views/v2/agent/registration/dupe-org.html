@@ -18,13 +18,11 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">{{ data['orgname'] }}</th>
-            <td scope="col" class="govuk-table__cell">122 London Road<br>Farrington<br>SW9 3RR</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">{{ data['orgname'] }} Ltd</th>
-           <td scope="col" class="govuk-table__cell">124 London Road<br>Farrington<br>SW9 3RR</th>
           </tr>
         </tbody>
       </table>
@@ -32,7 +30,7 @@
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Is this a duplicate organisation?
+                Do you want to continue with the registration or add a branch to the registered organisation?
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
@@ -45,6 +43,12 @@
                   <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
                   <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
                     No, continue the registration
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                    Add a branch to the existing organisation
                   </label>
                 </div>
               </div>

@@ -53,6 +53,17 @@
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['orgemail'] }}</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
 
           {% if "delegateID" in data['additionalinfo'] %}
           <div class="govuk-summary-list__row">
@@ -67,54 +78,106 @@
             </dd>
           </div>
           {% endif %}   
-
-        {% if "email" in data['additionalinfo'] %}
+           {% if "phone" in data['additionalinfo'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Email address
+              Phone number
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['orgemail'] }}</p>
+              {{ data['orgphone'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
             </dd>
           </div>
-          {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              A really helpful org ID in a format I don't know
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          {% endif %}   
+
+        
+          
+       
         </dl>
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
 Archive organisation
 </button>
           
 
+<h2 class="govuk-heading-m">Branches</h2>
 
-       <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Branch details</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Address</th>
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email</th>
-      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Phone number</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-       <td class="govuk-table__cell">{{ data['select-an-address'] }}</th>
-      <td class="govuk-table__cell govuk-table__cell--numeric">{{ data['unit-email'] }}</td>
-      <td class="govuk-table__cell govuk-table__cell--numeric">{{ data['unit-phone'] }}</td>
-    </tr>
-<!--
-    <tr class="govuk-table__row">
-       <td class="govuk-table__cell">February</th>
-      <td class="govuk-table__cell govuk-table__cell--numeric">£75</td>
-      <td class="govuk-table__cell govuk-table__cell--numeric">£55</td>
-    </tr>
-    <tr class="govuk-table__row">
-       <td class="govuk-table__cell">March</th>
-      <td class="govuk-table__cell govuk-table__cell--numeric">£165</td>
-      <td class="govuk-table__cell govuk-table__cell--numeric">£125</td>
-    </tr>
-  -->
+    <div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      {{ data['branchname'] }}
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> (University of Gloucestershire)</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove branch<span class="govuk-visually-hidden"> (University of Gloucestershire)</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['select-an-address'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Email
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['unit-email'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['unit-phone'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         BranchID
+        </dt>
+        <dd class="govuk-summary-list__value">
+          A branchID of some formats
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
   </tbody>
 </table>
         <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -125,7 +188,7 @@ Archive organisation
     </div>
   </main>
 </div>
-<!--
-{{ data | dump }}
--->
+
+
+
 {% endblock %}
