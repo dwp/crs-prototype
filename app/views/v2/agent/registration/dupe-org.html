@@ -14,18 +14,25 @@
     <p class="govuk-body">If the organisation you're trying to register is different, you can continue the registration.</p>
     <div>
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">The organisations already registered are:</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">{{ data['orgname'] }}</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">{{ data['orgname'] }} Ltd</th>
-          </tr>
-        </tbody>
-      </table>
+  <caption class="govuk-table__caption govuk-table__caption--m">The organisations already registered are</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation name</th>
+      <th scope="col" class="govuk-table__header">Organisation address</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">{{ data['orgname'] }}</th>
+      <td class="govuk-table__cell">107 Wasington street, AA12 2PS</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">{{ data['orgname'] }} Ltd</th>
+      <td class="govuk-table__cell">101 Wasington street, AA12 2PS</td>
+    </tr>
+   
+  </tbody>
+</table>
    <form action="/form-handler" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -36,13 +43,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
                   <label class="govuk-label govuk-radios__label" for="interviewNeeds">
-                    Yes, stop the registation
+                    Stop the registation
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
                   <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
-                    No, continue the registration
+                    Continue the registration
                   </label>
                 </div>
                 <div class="govuk-radios__item">
