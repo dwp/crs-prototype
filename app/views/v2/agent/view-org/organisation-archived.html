@@ -1,0 +1,276 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{{ data['orgname'] }}</h1>
+        <p class="govuk-body">Organisation status: <strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong> </p>
+         <p class="govuk-body">User agreement status: <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong> </p>
+      </div>
+
+      <!--ACTION LINKS-->
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Actions</h2>
+        <p class="govuk-body"><a href="/v2/agent/view-org/audit-log">Add a branch</a></p>
+        <p class="govuk-body"><a href="/v2/agent/view-org/audit-log">Create a CRIF catch up</a></p>
+        <p class="govuk-body"><a href="/v2/agent/view-org/audit-log">Archive organisation</a></p>
+        <p class="govuk-body"><a href="/v2/agent/view-org/audit-log">Audit log</a></p>
+      </div>
+    </div>
+    
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-tabs" data-module="govuk-tabs">
+  
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#org-details">
+        Organisation details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#branches">
+        Branches
+      </a>
+        <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#history">
+        History
+      </a>
+      </li>
+  </ul>
+
+  <div class="govuk-tabs__panel" id="org-details">
+    <h2 class="govuk-heading-m">Organisation details</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+       
+      </thead>
+        <dl class="govuk-summary-list">
+          {% if "InsurerID" in data['additionalinfo'] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Insurer ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['insurerid'] }}
+            </dd>
+
+            <!--Hidden the content as for some ungodly reason, removing the dd makes the second row wrap-->
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          {% endif %}
+     
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgname'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['orgtype'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          
+
+          {% if "delegateID" in data['additionalinfo'] %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Delegate ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['delegateid'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          {% endif %}   
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123456
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registration date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 September 2025
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4 September 2025
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+        </div>
+        </div>
+        
+    </table>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="branches">
+   <h2 class="govuk-heading-m">Branches</h2>
+
+    <div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      {{ data['branchname'] }}
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> (University of Gloucestershire)</span></a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Remove branch<span class="govuk-visually-hidden"> (University of Gloucestershire)</span></a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['select-an-address'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['unit-phone'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Branch ID
+        </dt>
+        <dd class="govuk-summary-list__value">
+          C12351-123
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 September 2025
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+        </dd>
+      </div>
+    </dl>
+    </div>
+    
+  </div>
+  
+</div>
+
+   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
+   <h2 class="govuk-heading-m">History</h2>
+
+  <div class="govuk-summary-card__content">
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+       
+      </thead>
+        <dl class="govuk-summary-list">
+          
+    
+         <div class="dwp-timeline">
+  <ol class="dwp-timeline__items">
+    <li class="dwp-timeline__item">
+      <p class="dwp-timeline__datetime">12 September 2025 at 10:14am</p>
+      <h2 class="dwp-timeline__heading">Organisation archived</h2>
+      <p class="dwp-timeline__by-line">by Amanda Forrest</p>
+    </li>
+     <li class="dwp-timeline__item">
+      <p class="dwp-timeline__datetime">2 September 2025 at 10:14am</p>
+      <h2 class="dwp-timeline__heading">Organisation emai l address updated</h2>
+      <p class="dwp-timeline__by-line">by Amanda Forrest</p>
+    </li>
+    <li class="dwp-timeline__item">
+      <p class="dwp-timeline__datetime">1 July 2025 at 10:14am</p>
+      <h2 class="dwp-timeline__heading">Branch address updated</h2>
+      <p class="dwp-timeline__by-line">by Amanda Forrest</p>
+    </li>
+    <li class="dwp-timeline__item">
+      <p class="dwp-timeline__datetime">16 June 2024 at 1:00am</p>
+      <h2 class="dwp-timeline__heading">Branch added</h2>
+      <p class="dwp-timeline__by-line">by Fred Jackson</p>
+    </li>
+    <li class="dwp-timeline__item">
+      <p class="dwp-timeline__datetime">1 June 2024 at 7:14am</p>
+      <h2 class="dwp-timeline__heading">Organisation created</h2>
+      <p class="dwp-timeline__by-line">by Fred Jackson</p>
+    </li>
+   
+  </ol>
+</div>
+        </div>   
+    </table>
+
+    </table>
+  </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{{ data | dump }}
+{% endblock %}
