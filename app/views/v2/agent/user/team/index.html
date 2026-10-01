@@ -1,0 +1,50 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <form class="form" action="../profile/" method="post">
+<h1 class="govuk-heading-l">Which team would you like to add Adam Allan to?</h1>
+
+<p class="govuk-body">
+  You can add this user to the following teams.
+</p>
+
+{{ govukCheckboxes({
+  name: "team",
+  items: [
+    {
+      value: "customer-support",
+      text: "Customer Support Team",
+      hint: {
+        text: "Provides frontline assistance to customers, handling enquiries and helping resolve claim-related questions."
+      }
+    },
+    {
+      value: "quality-assurance",
+      text: "Quality Assurance Team",
+      hint: {
+        text: "Reviews claims and decisions to ensure consistency, accuracy, and compliance with operational standards."
+      }
+    },
+    {
+      value: "technical-specialists",
+      text: "Technical Specialists",
+      hint: {
+        text: "Supports complex or high-value claims requiring specialist knowledge and detailed investigation."
+      }
+    }
+  ]
+}) }}
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+</div>
+
+{% endblock %}

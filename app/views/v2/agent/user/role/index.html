@@ -1,0 +1,46 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <form class="form" action="../profile/" method="post">
+<h1 class="govuk-heading-l">Which role should Adam Allan have?</h1>
+
+{{ govukRadios({
+  name: "role",
+  items: [
+    {
+      value: "IT admin",
+      text: "IT admin",
+      hint: {
+        text: "Manages system access and support."
+      }
+    },
+    {
+      value: "Manager",
+      text: "Manager",
+      hint: {
+        text: "Oversees team activities and performance."
+      }
+    },
+    {
+      value: "Agent",
+      text: "Agent",
+      hint: {
+        text: "Handles day-to-day operational tasks."
+      }
+    }
+  ]
+}) }}
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+</div>
+
+{% endblock %}

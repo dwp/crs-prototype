@@ -1,0 +1,185 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  classes: "govuk-breadcrumbs",
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage users",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+{% call govukNotificationBanner({
+  type: "success"
+}) %}
+  <h3 class="govuk-notification-banner__heading">
+    User added to team
+  </h3>
+{% endcall %}
+    <span class="govuk-caption-l">User profile</span>
+    <h1 class="govuk-heading-xl">
+        Adam Allan
+        </h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Role"
+      },
+      value: {
+        text: "IT administrator"
+      }
+    },
+    {
+      key: {
+        text: "Email address"
+      },
+      value: {
+        text: "adam.allan@dwp.gov.uk"
+      }
+    },
+    {
+      key: {
+        text: "Status"
+      },
+      value: {
+        html: "      <td class='govuk-table__cell'>
+        <strong class='govuk-tag govuk-tag--green'>
+          Active
+        </strong> 
+        
+      </td>"
+      }
+    },
+    {
+      key: {
+        text: "Grade"
+      },
+      value: {
+        text: "5"
+      }
+    },
+    {
+      key: {
+        text: "Area"
+      },
+      value: {
+        text: "GB"
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: "25 January 2026"
+      }
+    }
+  ]
+}) }}
+
+<!--<strong class='govuk-tag govuk-tag--red'>
+          Inactive
+        </strong>-->
+<!--
+        
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: "25 January 2026"
+      }
+    }
+
+-->
+
+<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-5">
+  Teams
+</h2>
+<p>Teams this user is a part of and the privilege groups used by these teams.</P>
+
+<!--<p>This user is not part of any teams.</P>-->
+
+<div class="govuk-button-group">
+ {{ govukButton({
+  text: "Add to team",
+  href: "../team/"
+}) }}
+
+  {{ govukButton({
+    text: "Remove from team",
+    href: "../remove/index.html",
+    classes: "govuk-button--secondary"
+  }) }}
+
+</div>
+
+{{ govukTable({
+  head: [
+    {
+      text: "Team"
+    },
+    {
+      text: "Description"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Case Resolution Team"
+      },
+      {
+        html: "Resolves complex claim issues, investigates discrepancies, and ensures cases are concluded accurately and efficiently.
+        <details class='govuk-details govuk-!-margin-top-3'>
+        <summary class='govuk-details__summary'>
+            <span class='govuk-details__summary-text'>
+            Privilege groups
+            </span>
+        </summary>
+        <div class='govuk-details__text'><ul class='govuk-list govuk-list--bullet'> <li><strong>User Management</strong>: Create and manage user accounts.</li> <li><strong>Case Access</strong>: View and update case records.</li> <li><strong>Reporting Tools</strong>: Generate operational performance reports.</li> <li><strong>System Support</strong>: Maintain application settings and access.</li> </ul> </div>
+        </details>
+        "
+      }
+    ],
+    [
+      {
+        text: "Claims Operations"
+      },
+      {
+        html: "Resolves complex claim issues, investigates discrepancies, and ensures cases are concluded accurately and efficiently.
+        <details class='govuk-details govuk-!-margin-top-3'>
+        <summary class='govuk-details__summary'>
+            <span class='govuk-details__summary-text'>
+            Privilege groups
+            </span>
+        </summary>
+<div class='govuk-details__text'><ul class='govuk-list govuk-list--bullet'> <li><strong>User Management</strong>: Create and manage user accounts.</li> <li><strong>Case Access</strong>: View and update case records.</li> <li><strong>Reporting Tools</strong>: Generate operational performance reports.</li> <li><strong>System Support</strong>: Maintain application settings and access.</li> </ul> </div>
+        </details>
+        "
+      }
+    ]
+  ]
+}) }}
+
+<!--<p class="govuk-!-margin-top-7"><a href="">Privilege groups and permissions reference guide</a>.</p>-->
+  </div>
+</div>
+
+{% endblock %}

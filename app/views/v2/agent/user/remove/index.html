@@ -1,0 +1,40 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <form class="form" action="../profile/" method="post">
+<h1 class="govuk-heading-l">Which teams would you like to remove Adam Allan from?</h1>
+
+        {{ govukCheckboxes({
+        name: "team",
+        items: [
+            {
+            value: "case-resolution-team",
+            text: "Case Resolution Team",
+            hint: {
+                text: "Resolves complex claim issues, investigates discrepancies, and ensures cases are concluded accurately and efficiently."
+            }
+            },
+            {
+            value: "claims-operations",
+            text: "Claims Operations",
+            hint: {
+                text: "Resolves complex claim issues, investigates discrepancies, and ensures cases are concluded accurately and efficiently."
+            }
+            }
+        ]
+        }) }}
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+</div>
+
+{% endblock %}

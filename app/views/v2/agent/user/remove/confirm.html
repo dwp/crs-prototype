@@ -1,0 +1,23 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+{{ govukPanel({
+        titleText: "User removed"
+      }) }}
+
+      <p class="govuk-body">Alan Allan is no longer a member of Team A.</p>
+      <p class="govuk-body">
+       You can add users back to groups etc...
+      </p>
+  </div>
+</div>
+
+{% endblock %}

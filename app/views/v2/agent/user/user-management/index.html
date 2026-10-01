@@ -1,0 +1,284 @@
+{% extends "layouts/agent.html" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  classes: "govuk-breadcrumbs",
+  items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage users",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">
+        Manage users
+        </h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+
+ 
+  <div class="govuk-grid-column-one-quarter">
+
+    <form method="get">
+
+      {{ govukInput({
+        label: {
+          text: "Search users"
+        },
+        hint: {
+            text: "Name, email or staff number"
+        },
+        id: "search",
+        name: "search"
+      }) }}
+
+      {{ govukSelect({
+        id: "role",
+        name: "role",
+        label: {
+          text: "Role"
+        },
+        items: [
+          {
+            value: "",
+            text: "All roles"
+          },
+          {
+            value: "agent",
+            text: "Agent"
+          },
+          {
+            value: "it-admin",
+            text: "IT administrator"
+          },
+          {
+            value: "manager",
+            text: "Manager"
+          }
+        ]
+      }) }}
+
+      {{ govukSelect({
+        id: "status",
+        name: "status",
+        label: {
+          text: "Status"
+        },
+        items: [
+          {
+            value: "",
+            text: "All statuses"
+          },
+          {
+            value: "active",
+            text: "Active"
+          },
+          {
+            value: "inactive",
+            text: "Inactive"
+          }
+        ]
+      }) }}
+
+      {{ govukSelect({
+        id: "status",
+        name: "status",
+        label: {
+          text: "Grades"
+        },
+        items: [
+          {
+            value: "",
+            text: "All grades"
+          },
+          {
+            value: "4",
+            text: "4"
+          },
+          {
+            value: "5",
+            text: "5"
+          },
+          {
+            value: "6",
+            text: "6"
+          },
+          {
+            value: "7",
+            text: "7"
+          },
+          {
+            value: "8",
+            text: "8"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Apply filters"
+      }) }}
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <p class="govuk-body">
+      Showing 7 users
+    </p>
+
+    {{ govukTable({
+      head: [
+        {
+          html: 'Name'
+        },
+        {
+          html: 'Staff number'
+        },
+        {
+          html: 'Role'
+        },
+        {
+          html: 'Teams'
+        }
+      ],
+      classes: "govuk-table-responsive",
+      rows: [
+        [
+          {
+            html: "<a href='../profile/index.html'>Adam Allan</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "IT admin"
+          },
+          {
+            text: "Team A"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Betty Bright</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "Manager"
+          },
+          {
+            text: "None"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Sarah Jones</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "Admin"
+          },
+          {
+            text: "Team B"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Adam Allan</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "IT admin"
+          },
+          {
+            text: "Team A"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Betty Bright</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "Manager"
+          },
+          {
+            text: "Team A"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Sarah Jones</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "Admin"
+          },
+          {
+            text: "Team B"
+          }
+        ],
+        [
+          {
+            html: "<a href='../profile/index.html'>Sarah Jones</a>"
+          },
+          {
+            text: "567890"
+          },
+          {
+            text: "Admin"
+          },
+          {
+            text: "Team B"
+          }
+        ]
+      ]
+    }) }}
+
+    <!--
+    {{ govukPagination({
+      items: [
+        {
+          number: 1,
+          current: true
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
+-->
+
+  </div>
+
+</div>
+
+{% endblock %}
