@@ -2,6 +2,20 @@
 {% set pageName="Change me" %}
 
 {% block content %}
+{% if data.hospitalTreatmentSource %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Claim details updated
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+
 
 <!-- Start banner -->
 {% if data.conditions == "claimDetailsUpdated" %}
@@ -68,7 +82,7 @@
 <!-- End banner-->
 
 <!-- Start banner -->
-{% if data.conditions == "letter" %}
+{% if data.conditions == "letter" or data.letterToSend %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         {% call govukNotificationBanner({
@@ -98,6 +112,23 @@
 </div>
 {% endif %}
 <!-- End banner-->
+
+<!-- Start banner -->
+ {% if data.confirmTreatmentOptions == "Yes" or data.confirmTreatmentOptions == "noVerify" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {% call govukNotificationBanner({
+        type: "success"
+        }) %}
+        <h3 class="govuk-notification-banner__heading">
+            Claim details 
+        </h3>
+        {% endcall %}
+    </div>
+</div>
+{% endif %}
+<!-- End banner-->
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -135,7 +166,7 @@
     }}
 
     {% set pastDayHtml %}
-    <h2 class="govuk-heading-m">Claim details</h2>
+    <h1 class="govuk-heading-l">Claim details</h1>
     {{ govukSummaryList({
     rows: [
         {
@@ -307,7 +338,59 @@
     {% endif %}
     <!-- End status: incomplete -->
      <!-- Status: CHANGE-->
-    {% if data.claimState == "incomplete" or data.claimState == "issued" %}
+    {% if (data.claimState == "incomplete" or data.claimState == "issued") and data.location == "ni" %}
+   {{ govukSummaryList({
+  rows: [
+    {
+      key: { text: "Hospital treatment" },
+      value: { text: data['hospitalTreatment'] or "No" },
+      actions: {
+        items: [{
+          href: "../../v2/claim-data-capture/did-the-person-receive-hospital-treatment/index.html",
+          text: "Change",
+          visuallyHiddenText: "hospital treatment"
+        }]
+      }
+    }
+  ] if data.hospitalTreatment == "Yes" else [
+    {
+      key: { text: "Hospital treatment" },
+      value: { text: data['hospitalTreatment'] or "No" },
+      actions: {
+        items: [{
+          href: "../../v2/claim-data-capture/did-the-person-receive-hospital-treatment/index.html",
+          text: "Change",
+          visuallyHiddenText: "hospital treatment"
+        }]
+      }
+    }
+  ]
+}) }}
+
+<!--
+,
+    {
+      key: {
+        text: "Hospital treatment check"
+      },
+      value: {
+        html: govukTag({
+          text: "In progress",
+          classes: "govuk-tag--yellow"
+        })
+      },
+      actions: {
+        items: [{
+          href: "../../claim-data-capture/confirm-hospital-treatment/index.html",
+          text: "Change",
+          visuallyHiddenText: "hospital treatment"
+        }]
+      }
+    }
+-->
+
+    {% endif %}
+        {% if (data.claimState == "incomplete" or data.claimState == "issued") and data.location != "ni" %}
         {{ govukSummaryList({
         rows: [
             {
@@ -328,7 +411,7 @@
     {% endset -%}
 
     {% set pastWeekHtml %}
-    <h2 class="govuk-heading-m">Contact details</h2>
+    <h1 class="govuk-heading-l">Contact details</h1>
     <h3 class="govuk-heading-s govuk-!-margin-top-6">
     Injured person's representative
     </h3>

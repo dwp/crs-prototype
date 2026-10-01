@@ -1,0 +1,14 @@
+{% extends "layouts/agent.html" %}
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
+      <p>You cannot download the hospital treatment confirmation report at this time due a technical error</p>
+      <p>Try again later.</p>
+  </div>
+</div>
+{% endblock %}

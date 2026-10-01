@@ -1,0 +1,192 @@
+{% extends "layouts/agent.html" %}
+{% set pageName = "Home" %}
+
+{% block beforeContent %}
+  {% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Are these serious injuries?
+    </h1>
+    <p class="govuk-body">
+          There is no confirmation of hospital treatment taking place. Review the
+          injuries below and decide if they were serious enough for hospital treatment.
+    </p>
+
+   
+
+    <h2 class="govuk-heading-m">
+      Injury details
+    </h2>
+
+
+      {{ govukTable({
+      firstCellIsHeader: true,
+      rows: [
+        [
+          {
+            text: "Injury description"
+          },
+          {
+            text: "Sustained minor injuries, including bruising and soft tissue damage."
+          }
+        ]
+      ]
+    }) }}
+<!--
+      {{ govukTable({
+      firstCellIsHeader: true,
+      rows: [
+        [
+          {
+            text: "Whiplash"
+          },
+          {
+            text: "Yes"
+          }
+        ],
+        [
+          {
+            text: "Other injuries"
+          },
+          {
+            text: "Yes"
+          }
+        ],
+        [
+          {
+            text: "Type of injury"
+          },
+          {
+            html: "
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>Partial thickness skin tissue injuries</li>
+                <li>Psychological injuries</li>
+                <li>Musculoskeletal injuries</li>
+              </ul>
+            "
+          }
+        ],
+        [
+          {
+            text: "Physical injury other than whiplash"
+          },
+          {
+            html: "
+              <p class='govuk-!-margin-bottom-2'><strong>Elbow, shoulder or torso injuries</strong></p>
+
+              <p class='govuk-!-margin-bottom-1'><strong>Body:</strong></p>
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>Pain on movement</li>
+              </ul>
+
+              <p class='govuk-!-margin-bottom-1'><strong>Injury location:</strong></p>
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>Left side</li>
+              </ul>
+
+              <p class='govuk-!-margin-bottom-2'><strong>Leg, rear or ankle injuries</strong></p>
+
+              <p class='govuk-!-margin-bottom-1'><strong>Body:</strong></p>
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>Pain on movement</li>
+                <li>Fracture</li>
+              </ul>
+
+              <p class='govuk-!-margin-bottom-1'><strong>Injury location:</strong></p>
+              <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-0'>
+                <li>Left leg</li>
+              </ul>
+            "
+          }
+        ],
+        [
+          {
+            text: "Psychological injuries"
+          },
+          {
+            text: "Travel anxiety"
+          }
+        ],
+        [
+          {
+            text: "Neurological injuries"
+          },
+          {
+            text: "Changes to senses"
+          }
+        ]
+      ]
+    }) }}
+            -->
+
+
+    <!--
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Whiplash
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Other injuries
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Types of injury
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>Physical injury other than whiplash</li>
+            <li>Psychological injuries</li>
+            <li>Neurological injuries</li>
+          </ul>
+        </dd>
+      </div>
+    </dl>-->
+
+    {{ govukRadios({
+    classes: "govuk-radios--inline",
+    name: "changedName",
+    fieldset: {
+      legend: {
+        text: "Do you think these are serious injuries?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Continue",
+    href: "../task-completed.html"
+  }) }}
+  
+  </div>
+  
+</div>
+
+{% endblock %}

@@ -7,8 +7,27 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+        {% set panelHtml %}
+          {% if data.taskOutcome == "hospital-treatment-took-place" %}
+            Hospital treatment took place
+          {% endif %}
+
+          {% if data.taskOutcome == "hospital-treatment-did-not-take-place" %}
+            Hospital treatment did not take place
+          {% endif %}
+
+          {% if data.letterToSend %}
+            CRU HTC IP letter sent to injured person
+          {% endif %}
+
+          {% if data.taskOutcome == "confirmation-letter-sent" %}
+            Hospital treatment cannot be confirmed
+          {% endif %}
+        {% endset %}
+
         {{ govukPanel({
-          titleText: "Task completed"
+          titleText: "Task completed",
+          html: panelHtml
         }) }}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-4 govuk-!-margin-top-8">
         What you can do next

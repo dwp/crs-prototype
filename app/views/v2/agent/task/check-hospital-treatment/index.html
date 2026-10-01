@@ -1,0 +1,287 @@
+{% extends "layouts/agent.html" %}
+{% set pageName = "Home" %}
+
+{% block beforeContent %}
+  {% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+      Task details
+    </h1>
+
+    {{ govukTag({
+      text: "In progress",
+      classes: "govuk-tag--yellow"
+    }) }}
+
+    <div class="govuk-!-margin-top-7">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Assigned to"
+            },
+            value: {
+              text: "Sam Smith"
+            }
+          },
+          {
+            key: {
+              text: "Description"
+            },
+            value: {
+              text: "Check if an injured person had hospital treatment"
+            }
+          },
+          {
+            key: {
+              text: "CRU reference"
+            },
+            value: {
+              text: "PAB994"
+            }
+          },
+          {
+            key: {
+              text: "Name of injured person"
+            },
+            value: {
+              text: "Claire Roberts"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "09 April 1972"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "123 London Road<br>Coventry<br>CV1 2FD"
+            }
+          },
+          {
+            key: {
+              text: "Date of injury"
+            },
+            value: {
+              text: "19 June 2022"
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+
+    <!-- Call task -->
+     {% if data.conditions == "callTask" %}
+      <h2 class="govuk-heading-m">
+        Task instructions
+      </h2>
+
+      <p class="govuk-body">
+        A hospital treatment letter has been sent to the injured person's representative.
+        Complete a check on DRS to see if they have replied to this letter.
+      </p>
+
+      <p class="govuk-body">
+        If they have not replied, call the injured person's representative and find out if
+        the injured person had hospital treatment.
+      </p>
+
+      <p class="govuk-body">
+        Based on this, decide which 'task outcome' to choose below.
+      </p>
+
+      <h3 class="govuk-heading-s">
+        If the representative has said the injured person did receive hospital treatment:
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../agent/claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)</a>,
+          change 'Hospital treatment' from No to Yes and choose how you found out about
+          the hospital treatment
+        </li>
+        <li>
+          return to this page and choose
+          'Close task – Hospital treatment took place'
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        If the representative has said the injured person did not receive hospital treatment:
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../agent/claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)
+  </a>
+  to review injuries: if injuries are not serious, choose the ‘Confirm no hospital treatment’ action and choose how you found out about the hospital treatment  
+        </li>
+        <li>
+          return to this page and choose
+          'Close task – Hospital treatment did not take place'
+        </li>
+        <li>
+          if injuries are serious, go to claim details and choose the
+          'Send a letter' action followed by 'CRU HTC IP'
+        </li>
+        <li>
+          return to this page and choose
+          'Close task – Sent injured person hospital treatment confirmation letter'
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        If the representative has not responded to the letter or call:
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)</a>
+          </a>
+          and choose the 'Send a letter' action followed by 'CRU HTC IP'
+        </li>
+        <li>
+          return to this page and choose
+          'Close task – Sent injured person hospital treatment confirmation letter'
+        </li>
+      </ul>
+
+      {{ govukRadios({
+        name: "taskOutcome",
+        fieldset: {
+          legend: {
+            text: "Task outcome",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "hospital-treatment-took-place",
+            text: "Close task – Hospital treatment took place"
+          },
+          {
+            value: "hospital-treatment-did-not-take-place",
+            text: "Close task – Hospital treatment did not take place"
+          },
+          {
+            value: "confirmation-letter-sent",
+            text: "Close task – Sent injured person hospital treatment confirmation letter"
+          }
+        ]
+      }) }}
+    {% endif %}
+    <!-- End call task -->
+    
+    <!-- Close task -->
+     {% if data.conditions == "closeTask" %}
+  <h2 class="govuk-heading-m">
+        Task instructions
+      </h2>
+
+      <p class="govuk-body">
+      A hospital treatment letter has been sent to the injured person’s representative and injured person. Complete a final check on DRS to see if they have replied to this letter.  
+      </p>
+
+      <p class="govuk-body">
+        Based on this, decide which ‘task outcome’ to choose below.  
+      </p>
+
+      <h3 class="govuk-heading-s">
+        If the representative or injured person has said the injured person did receive hospital treatment:
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)</a>,
+          change 'Hospital treatment' from No to Yes and choose how you found out about
+          the hospital treatment
+        </li>
+        <li>
+          update 'Check hospital treatment' to
+          'Yes – Hospital treatment took place'
+        </li>
+        <li>
+          return to this page and choose
+          'Close task – Hospital treatment took place'
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+        If the representative or injured person has said the injured person did not receive hospital treatment: 
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)
+  </a>, update ‘Check hospital treatment’ to ‘No – hospital treatment did not take place’ and choose how you found out about the hospital treatment  
+        </li>
+        <li>
+          return to this page and choose 'Close task – Hospital treatment did not take place'
+        </li>
+      </ul>
+
+      <h3 class="govuk-heading-s">
+      If the representative or injured person has not responded and we cannot confirm whether or not there was hospital treatment: 
+      </h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          go to <a href="../../claim/index.html" target="_blank" rel="noreferrer noopener"> claim details (opens in a new tab)</a>, 
+          </a> update ‘Check hospital treatment’ to ‘Unable to verify treatment – Hospital treatment cannot be confirmed’  
+        </li>
+        <li>return to this page and choose ‘Close task – Hospital treatment cannot be confirmed’  
+        </li>
+      </ul>
+        {{ govukRadios({
+          name: "taskOutcome",
+          fieldset: {
+            legend: {
+              text: "Task outcome",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "hospital-treatment-took-place",
+              text: "Close task – Hospital treatment took place "
+            },
+            {
+              value: "hospital-treatment-did-not-take-place",
+              text: "Close task – Hospital treatment did not take place"
+            },
+            {
+              value: "confirmation-letter-sent",
+              text: "Close task – Hospital treatment cannot be confirmed "
+            }
+          ]
+        }) }}
+     {% endif %}
+    <!-- End close task -->
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Confirm",
+        href: "../../agent/task/task-completed"
+      }) }}
+
+      <a class="govuk-link" href="#">Cancel</a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

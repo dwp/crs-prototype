@@ -1,0 +1,64 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/hospital-treatment-yes-no" method="post">
+      <span class="govuk-caption-xl">
+        NHS or HS treatment details
+      </span>
+
+      {{ govukRadios({
+        name: "hospitalTreatment",
+        fieldset: {
+          legend: {
+            text: "Did the person receive hospital treatment?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          html: '
+           <p>Check DRS to confirm whether or not the injured person received hospital treatment.</p>
+            <p class="govuk-body"><strong>This includes:</strong></p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>treatment at any NHS or HS hospital</li>
+              <li>treatment at any NHS or HS urgent care centre</li>
+              <li>a trip in an NHS or HS ambulance</li>
+            </ul>
+
+            <p class="govuk-body"><strong>This does not include:</strong></p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>treatment at an NHS or HS GP surgery</li>
+              <li>treatment at a private hospital</li>
+              <li>a trip in a private ambulance</li>
+            </ul>
+          '
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+     
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}

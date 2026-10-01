@@ -152,15 +152,25 @@ router.post('/conditions', function (req, res) {
     res.redirect('/v2/agent/task/cru-4-amendment')
   } else if (scenario == "claim"){
     res.redirect('/v2/claim-state')
+  }  else if (scenario == "task"){
+    res.redirect('/v2/claim-state')
   }   
 })
 
 //Set claim state
 router.post('/claim-state', function (req, res) {
    var conditions = req.session.data['conditions']
+   var scenario = req.session.data['scenario']
   if (conditions == "contactDetailsUpdated"){
     res.redirect('/v2/agent/claim#past-week')
-  } else {
+  } else if (conditions == "callTask"){
+    res.redirect('/v2/agent/task/check-hospital-treatment.html')
+  } else if (conditions == "closeTask"){
+    res.redirect('/v2/agent/task/close-task.html')
+  } 
+  
+  
+  else {
     res.redirect('/v2/agent/claim')
   }   
 })
@@ -246,4 +256,40 @@ router.post('/v2/agent/registration/org-name', function (req, res) {
   } else {
     res.redirect('/v2/agent/registration/org-type')
   }
+})
+
+//HTC questions
+
+router.post('/hospital-treatment', function (req, res) {
+
+  var scenario = req.session.data['scenario']
+  if (scenario == "task"){
+    res.redirect('/v2/agent/claim/index.html')
+  }   else {
+        res.redirect('/v2/agent/claim/index.html'); // fallback route
+}
+})
+
+
+//Did the person receive hospital treatment?
+router.post('/hospital-treatment-yes-no', function (req, res) {
+
+  var hospitalTreatment = req.session.data['hospitalTreatment']
+  if (hospitalTreatment == "Yes"){
+    res.redirect('/v2/claim-data-capture/confirm-hospital-treatment/index.html')
+  }   else {
+        res.redirect('/v2/claim-data-capture/confirm-no-hospital-treatment/index.html'); // fallback route
+}
+})
+
+//Close HCT task
+
+router.post('/close-hct', function (req, res) {
+
+  var taskOutcome = req.session.data['taskOutcome']
+  if (taskOutcome == "confirmation-letter-sent"){
+    res.redirect('/v2/agent/task/close-task/are-these-serious-inuries.html')
+  }   else {
+        res.redirect('../v2/agent/task/task-completed.html'); // fallback route
+}
 })

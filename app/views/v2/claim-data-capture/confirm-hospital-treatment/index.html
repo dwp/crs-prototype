@@ -1,0 +1,35 @@
+{% extends "layouts/agent.html" %}
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+{% include "includes/back.njk" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="../../claim-data-capture/how-did-you-find-out-hospital-treatment/index" method="post">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
+       Can you confirm whether there was hospital treatment?
+        </h1>
+
+        <p>This will create a legacy task to to move the claim to the legacy CRU system as part of a separate task.</p>
+
+            {{ govukCheckboxes({
+                name: "confirmTreatment",
+                items: [
+                    {
+                    value: "confirmTreatment",
+                    text: "I can confirm the injured person did receive hospital treatment"
+                    }
+                ]
+            }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+    </form>
+  </div><!-- End 2/3 column -->
+</div><!-- End row -->
+
+{% endblock %}

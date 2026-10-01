@@ -1,0 +1,201 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <!-- Start column -->
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Compensation Recovery Service prototype</h1>
+        <p class="govuk-body">
+      {{govukTag({
+        text: "Version 5: testable",
+        classes: "govuk-tag--yellow"
+      })}}
+    </p>
+    <p class="govuk-body">This prototype is maintained by <a href="">CRS UCD</a>.</p>
+
+    <p class="govuk-body"><a href="">Research and design documentation</a> is published on the service's Confluence page.</p>
+
+        {{ govukButton({
+      text: "Start prototype",
+      href: "v5/persona"
+    }) }}
+
+    <h2 class="govuk-heading-m">Last updated</h2>
+
+    <p class="govuk-body">9 June 2026</p>
+
+    <h2 class="govuk-heading-m">Date created</h2>
+    <p class="govuk-body">1 January 2026</p>
+
+    <h2 class="govuk-heading-m">What does this prototype cover?</h2>
+    <p class="govuk-body">
+      This prototype covers:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+    <li>public-facing information about the service</li>
+    <li>compensator registration and claim submission</li>
+    <li>agent claim management and admin journeys</li>
+  </ul>
+    
+
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
+
+{{ govukAccordion({
+  id: "accordion-default",
+  headingLevel: "3",
+  items: [
+    {
+      heading: {
+        text: "June 26"
+      },
+      content: {
+        html: '<p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--yellow">
+          Version 5: testable</strong>
+          </p>
+          <p class="govuk-body">
+
+Version 5 focused on improving investigation workflows, increasing visibility of captured information and reducing the effort required to manage accommodation stay cases. The iteration introduced better information playback, clearer evidence-gathering journeys, improved suspension handling and simpler outcome reporting based on the underlying payability data model.
+</p>
+          <ul class="govuk-list govuk-list--bullet">
+           <li>Displayed captured information directly on task list items, allowing caseworkers to quickly refer to key details without reopening completed questions.</li>
+
+<li>Renamed the "Paused" status to "In progress" to reduce confusion with suspended payments and better communicate incomplete activities.</li>
+
+<li>Updated explanatory content between task lists to reference processing time, helping caseworkers distinguish between claimant-facing questions and investigation activities completed later.</li>
+
+<li>Simplified evidence terminology by replacing references to accommodation and funding evidence forms with more flexible evidence-related language.</li>
+
+<li>Added support for situations where claimants are unsure of key stay information, creating a clearer route into investigation and payment suspension journeys.</li>
+
+<li>Removed contextual messaging about payment suspension after 28 days where it could appear at inappropriate stages of the stay lifecycle.</li>
+
+<li>Introduced a dedicated payment suspension confirmation step, allowing caseworkers to suspend payments when uncertainty is identified during data capture.</li>
+
+<li>Made evidence-gathering journeys more flexible by allowing agents to record how evidence was received and when evidence is not required.</li>
+
+<li>Simplified payability outcomes by focusing on stay duration, payable days and non-payable days derived directly from the payability data model.</li>
+
+<li>Removed the "Check your answers" screen and relied on in-context information playback throughout the journey, reducing duplication and shortening the submission process.</li>
+          </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "May 26"
+      },
+      content: {
+        html: '<p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--green">
+          Version 4</strong>
+          </p>
+          <p class="govuk-body">
+          Version 4 focused on supporting the investigative nature of payability work, helping caseworkers gather evidence, manage accommodation stays over time and understand the impact of stay decisions on claimant payments. The iteration introduced clearer task structures, improved guidance, enhanced case maintenance capabilities and better visibility of evidence-gathering activity throughout the stay lifecycle.
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+          <li>Removed the accommodation type "Other" option and separated "similar institution" determinations from accommodation type selection to promote consistent categorisation.</li>
+          <li>Displayed the stay task list immediately after accommodation type selection to help agents understand the scope of required information earlier in the journey.</li>
+          <li>Added contextual guidance, claimant-facing script prompts and explanatory content to clarify when information should be captured during claimant contact and when it should be completed later by caseworkers.</li>
+          <li>Introduced evidence status tracking to help caseworkers monitor enquiries, evidence requests and investigation progress.</li>
+          <li>Surfaced accommodation and funding provider contact details alongside evidence-gathering activities to support follow-up actions.</li>
+          <li>Simplified contact-detail capture by combining multiple screens into a single experience and using clearer labels for telephone numbers and email addresses.</li>
+          <li>Updated boarding-related questions using terminology and phrasing observed in user research to reduce ambiguity and better align with caseworker language.</li>
+          <li>Allowed submitted accommodation stays to be reopened and edited when new information becomes available or corrections are required.</li>
+          <li>Reorganised completed stay records into themed sections, including stay details and funding details, to improve readability and comprehension.</li>
+          <li>Introduced stay outcomes showing how individual and linked stays affect daily living and mobility entitlement, helping caseworkers understand payment impacts more easily.</li>
+          </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "April 26"
+      },
+      content: {
+        html: '<p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--green">
+          Version 3</strong>
+          </p>
+          <p class="govuk-body">
+              Version 3 introduces a non-linear, task list-based approach, improving how agents capture, manage and complete payability information over time.
+          </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Display incomplete accommodation stays in an “Open stays” section using summary cards to highlight key information.</li>
+            <li>Introduce a task list pattern to replace a linear flow, enabling non-linear capture of payability information.</li>
+            <li>Reframe key questions as binary “Yes/No” responses written in the first person for claimant confirmation.</li>
+            <li>Standardise all claimant-facing questions to first-person phrasing for consistency and clarity.</li>
+            <li>Require all task list items to be completed before allowing a payability stay to be submitted.</li>
+            <li>Add status indicators (e.g. incomplete, ready to submit, complete) to communicate progress of a stay.</li>
+            <li>Introduce a “Check your answers” step to review and confirm captured information before submission.</li>
+            <li>Create a canonical, discrete record for each submitted accommodation stay.</li>
+            <li>Display submitted stays chronologically in a “Closed stays” section for audit and reference.</li>
+            <li>Remove the “Other” accommodation type option and order remaining options alphabetically.</li>
+            <li>Separate the “I don’t know” option visually from “Yes” and “No” responses.</li>
+            <li>Present additional “More details” task lists for accommodation types requiring further evidence.</li>
+            <li>Amend headings to indicate that adding accommodation contact details is optional.</li>
+            <li>Allow agents to choose which contact details to record for accommodation or funding providers.</li>
+            <li>Update headings to use agent-familiar terminology such as “boarding”.</li>
+            <li>Align wording across the interface with domain-specific language used by agents in existing systems.</li>
+          </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "March 26"
+      },
+      content: {
+        html: '<p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--green">
+          Version 2</strong>
+          </p>
+          <p class="govuk-body">
+              Version 2 refines the journey to support different claim contexts, improve data capture structure and introduce clearer separation of information.
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Update content to reflect differences between conversational scripts and structured data capture.</li>
+            <li>Align data capture across new and ongoing claim journeys.</li>
+            <li>Add postcode-based address lookup for accommodation details.</li>
+            <li>Move contact details capture to a dedicated screen.</li>
+            <li>Deprioritise address and contact capture with additional check steps.</li>
+            <li>Introduce additional data capture for boarder-related information.</li>
+            <li>Move “similar institution to hospital” classification later in the journey to support investigation.</li>
+          </ul>'
+      }
+    },
+    {
+      heading: {
+        text: "January 26"
+      },
+      content: {
+        html: '<p class="govuk-body">
+            <strong class="govuk-tag govuk-tag--green">
+          Version 1</strong>
+          </p>
+          <p class="govuk-body">
+              Version 1 establishes a basic journey for capturing and viewing temporary accommodation stays and their impact on PIP payments.
+          </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Provide a dedicated screen for adding, viewing and editing temporary accommodation stays.</li>
+            <li>Capture key stay details including accommodation type, start date, duration and status.</li>
+            <li>Capture information about funding sources and claimant repayment agreements.</li>
+            <li>Capture accommodation and funding provider contact details where available.</li>
+            <li>Link accommodation stays to their impact on PIP payment periods.</li>
+            <li>Introduce a “Check your answers” step to review entered information before completion.</li>
+            <li>Allow agents to add notes and delete stays created in error.</li>
+          </ul>'
+      }
+    }
+  ]
+}) }}
+
+  </div>
+  <!-- End column -->
+</div>
+
+{% endblock %}
