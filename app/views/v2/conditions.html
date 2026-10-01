@@ -125,6 +125,31 @@
       {% endif %}
       <!-- End claim conditions -->
 
+     <!-- Claim conditions-->
+      {% if data.scenario == "task" %}
+        {{ govukRadios({
+          name: "conditions",
+          fieldset: {
+            legend: {
+              text: "CRS V2: select conditions to simulate",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+                value: "callTask",
+                text: "Confirm hospital treatment: call task"
+            },
+            {
+                value: "closeTask",
+                text: "Confirm hospital treatment: close task"
+            }
+          ]
+        }) }}
+      {% endif %}
+      <!-- End claim conditions -->
+
       {{ govukButton({
         text: "Continue"
       }) }}
