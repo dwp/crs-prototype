@@ -1,14 +1,34 @@
-{% if data.claimState == "incomplete" %}
+{% if data.claimState == "incomplete" and data.location !="ni" %}
 <h2 class="govuk-heading-m">Actions</h2>
     <ul class="govuk-list">
         <li>
             <a class="govuk-link" href="/v2/agent/action/legacy">Create a legacy task</a>
+        </li>
+
+        <li>
+            <a class="govuk-link" href="/v2/agent/action/reminder">Set a reminder</a>
+        </li>
+    </ul>
+{% endif %}
+
+{% if data.claimState == "incomplete" and data.location =="ni" %}
+<h2 class="govuk-heading-m">Actions</h2>
+    <ul class="govuk-list">
+        <li>
+            <a class="govuk-link" href="/v2/claim-data-capture/confirm-no-hospital-treatment/index.html">Confirm no hospital treatment</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="/v2/agent/action/legacy">Create a legacy task</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="/v2/agent/action/letter">Send a letter</a>
         </li>
         <li>
             <a class="govuk-link" href="/v2/agent/action/reminder">Set a reminder</a>
         </li>
     </ul>
 {% endif %}
+
 
 {% if data.claimState == "legacy" %}
 {% endif %}
@@ -31,9 +51,12 @@
     </ul>
 {% endif %}
 
-{% if data.claimState == "issued" and data.location =="ni" %}
+{% if (data.claimState == "issued" or data.claimState == "settled") and data.location == "ni" %}
     <h2 class="govuk-heading-m">Actions</h2>
     <ul class="govuk-list">
+        <li>
+            <a class="govuk-link" href="/v2/claim-data-capture/confirm-no-hospital-treatment/index.html">Confirm no hospital treatment</a>
+        </li>
         <li>
             <a class="govuk-link" href="/v2/agent/action/legacy">Create a legacy task</a>
         </li>
